@@ -1,28 +1,25 @@
 //
-//  QueueTableViewController.m
-//  
+//  StartedSessionsTableViewController.m
+//  QuidProQueue
 //
-//  Created by Dare Ryan on 3/7/14.
-//
+//  Created by Dare Ryan on 3/8/14.
+//  Copyright (c) 2014 Dare Ryan. All rights reserved.
 //
 
-#import "QueueTableViewController.h"
+#import "StartedSessionsTableViewController.h"
 #import <FontAwesomeKit.h>
 
-
-@interface QueueTableViewController ()
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
+@interface StartedSessionsTableViewController ()
 
 @end
 
-@implementation QueueTableViewController
+@implementation StartedSessionsTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-       
     }
     return self;
 }
@@ -31,32 +28,9 @@
 {
     [super viewDidLoad];
     
-
-    FAKFontAwesome *tabIcon = [FAKFontAwesome usersIconWithSize:30];
-    [tabIcon addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor]];
-    UIImage *tabIconImage = [tabIcon imageWithSize:CGSizeMake(30,30)];
-    self.tabBarItem = [self.tabBarController.tabBar.items objectAtIndex:0];
-    self.tabBarItem.image = tabIconImage;
-    self.tabBarItem.title = @"Queue";
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
     
-    tabIcon = [FAKFontAwesome mapMarkerIconWithSize:30];
-    [tabIcon addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor]];
-    tabIconImage = [tabIcon imageWithSize:CGSizeMake(30,30)];
-    self.tabBarItem = [self.tabBarController.tabBar.items objectAtIndex:1];
-    self.tabBarItem.image = tabIconImage;
-    self.tabBarItem.title = @"Store Map";
-    
-    tabIcon = [FAKFontAwesome tachometerIconWithSize:30];
-    [tabIcon addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor]];
-    tabIconImage = [tabIcon imageWithSize:CGSizeMake(30,30)];
-    self.tabBarItem = [self.tabBarController.tabBar.items objectAtIndex:2];
-    self.tabBarItem.image = tabIconImage;
-    self.tabBarItem.title = @"Started Sessions";
-    
-    FAKIonIcons *settingIcon = [FAKIonIcons gearBIconWithSize:30];
-    [settingIcon addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor]];
-    UIImage *settingBarButtonImage = [settingIcon imageWithSize:CGSizeMake(30,30)];
-    self.settingsButton.image = settingBarButtonImage;
+   
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -77,7 +51,7 @@
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 1;
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

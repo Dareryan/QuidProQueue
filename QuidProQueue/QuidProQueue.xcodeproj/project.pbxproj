@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		4551003018CA9DEE0008791B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4551002F18CA9DEE0008791B /* Main.storyboard */; };
 		4551003318CA9E000008791B /* QueueTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4551003218CA9E000008791B /* QueueTableViewController.m */; };
+		4551003618CB75670008791B /* StartedSessionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4551003518CB75670008791B /* StartedSessionsTableViewController.m */; };
+		4551003918CB75990008791B /* CustomerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4551003818CB75990008791B /* CustomerDetailViewController.m */; };
+		4551003C18CB75BB0008791B /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4551003B18CB75BB0008791B /* MapViewController.m */; };
 		45516D5D18CA9D4800D3750D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45516D5C18CA9D4800D3750D /* Foundation.framework */; };
 		45516D5F18CA9D4800D3750D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45516D5E18CA9D4800D3750D /* CoreGraphics.framework */; };
 		45516D6118CA9D4800D3750D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45516D6018CA9D4800D3750D /* UIKit.framework */; };
@@ -24,6 +27,7 @@
 		45516D7E18CA9D4800D3750D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45516D6218CA9D4800D3750D /* CoreData.framework */; };
 		45516D8618CA9D4800D3750D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45516D8418CA9D4800D3750D /* InfoPlist.strings */; };
 		45516D8818CA9D4800D3750D /* QuidProQueueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45516D8718CA9D4800D3750D /* QuidProQueueTests.m */; };
+		45DF47F818CB8ADD0024F57C /* StoreMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 45DF47F718CB8ADD0024F57C /* StoreMap.png */; };
 		61E568A2910046169F38693F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5289E886E1B2443FB994DFC5 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +45,12 @@
 		4551002F18CA9DEE0008791B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4551003118CA9E000008791B /* QueueTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueueTableViewController.h; sourceTree = "<group>"; };
 		4551003218CA9E000008791B /* QueueTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueueTableViewController.m; sourceTree = "<group>"; };
+		4551003418CB75670008791B /* StartedSessionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartedSessionsTableViewController.h; sourceTree = "<group>"; };
+		4551003518CB75670008791B /* StartedSessionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartedSessionsTableViewController.m; sourceTree = "<group>"; };
+		4551003718CB75990008791B /* CustomerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerDetailViewController.h; sourceTree = "<group>"; };
+		4551003818CB75990008791B /* CustomerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerDetailViewController.m; sourceTree = "<group>"; };
+		4551003A18CB75BB0008791B /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		4551003B18CB75BB0008791B /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		45516D5918CA9D4800D3750D /* QuidProQueue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuidProQueue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45516D5C18CA9D4800D3750D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		45516D5E18CA9D4800D3750D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -59,6 +69,7 @@
 		45516D8318CA9D4800D3750D /* QuidProQueueTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QuidProQueueTests-Info.plist"; sourceTree = "<group>"; };
 		45516D8518CA9D4800D3750D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		45516D8718CA9D4800D3750D /* QuidProQueueTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuidProQueueTests.m; sourceTree = "<group>"; };
+		45DF47F718CB8ADD0024F57C /* StoreMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StoreMap.png; sourceTree = "<group>"; };
 		5289E886E1B2443FB994DFC5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A79B04002A534D4B90D257C9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,8 +141,15 @@
 				45516D6E18CA9D4800D3750D /* AppDelegate.m */,
 				4551003118CA9E000008791B /* QueueTableViewController.h */,
 				4551003218CA9E000008791B /* QueueTableViewController.m */,
+				4551003418CB75670008791B /* StartedSessionsTableViewController.h */,
+				4551003518CB75670008791B /* StartedSessionsTableViewController.m */,
+				4551003718CB75990008791B /* CustomerDetailViewController.h */,
+				4551003818CB75990008791B /* CustomerDetailViewController.m */,
+				4551003A18CB75BB0008791B /* MapViewController.h */,
+				4551003B18CB75BB0008791B /* MapViewController.m */,
 				4551002F18CA9DEE0008791B /* Main.storyboard */,
 				45516D7318CA9D4800D3750D /* Images.xcassets */,
+				45DF47F718CB8ADD0024F57C /* StoreMap.png */,
 				45516D7018CA9D4800D3750D /* QuidProQueue.xcdatamodeld */,
 				45516D6518CA9D4800D3750D /* Supporting Files */,
 			);
@@ -246,6 +264,7 @@
 			files = (
 				4551003018CA9DEE0008791B /* Main.storyboard in Resources */,
 				45516D6918CA9D4800D3750D /* InfoPlist.strings in Resources */,
+				45DF47F818CB8ADD0024F57C /* StoreMap.png in Resources */,
 				45516D7418CA9D4800D3750D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,9 +318,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				45516D6F18CA9D4800D3750D /* AppDelegate.m in Sources */,
+				4551003918CB75990008791B /* CustomerDetailViewController.m in Sources */,
 				4551003318CA9E000008791B /* QueueTableViewController.m in Sources */,
 				45516D6B18CA9D4800D3750D /* main.m in Sources */,
 				45516D7218CA9D4800D3750D /* QuidProQueue.xcdatamodeld in Sources */,
+				4551003618CB75670008791B /* StartedSessionsTableViewController.m in Sources */,
+				4551003C18CB75BB0008791B /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
