@@ -91,7 +91,6 @@
     {
         cell.detailTextLabel.text = [NSString stringWithFormat:@"Wait time: %.0f minute\nNotes: %@", timeElapsed/60.0, customerAtIndexPath.notes];
     }
-    
     else
     {
         cell.detailTextLabel.text = [NSString stringWithFormat:@"Wait time: %.0f minutes\nNotes: %@", timeElapsed/60.0, customerAtIndexPath.notes];

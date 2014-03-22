@@ -9,8 +9,17 @@
 #import "SettingsTableViewController.h"
 #import <FAKFontAwesome.h>
 #import <FAKIonIcons.h>
+#import "DataStore.h"
+#import "Employee.h"
 
 @interface SettingsTableViewController ()
+
+@property (strong, nonatomic) DataStore *dataStore;
+@property (strong, nonatomic) Employee *employee;
+@property (strong, nonatomic) IBOutlet UITextField *userNameTextField;
+@property (strong, nonatomic) IBOutlet UIButton *logInButton;
+
+- (IBAction)logInButtonPressed:(id)sender;
 
 @end
 
@@ -25,9 +34,39 @@
     return self;
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.dataStore = [DataStore sharedInstance];
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Employee"];
+    
+    
+    if ([[self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil] count] == 0) {
+        [self.logInButton setTitle:@"Log in" forState:UIControlStateNormal];
+        self.logInButton.titleLabel.textColor = [UIColor blueColor];
+        self.userNameTextField.text = @"";
+    }
+    else
+    {
+        Employee *loggedInEmployee = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil][0];
+        [self.logInButton setTitle:@"Log out" forState:UIControlStateNormal];
+        [self.logInButton setTitleColor:[UIColor colorWithRed:0.875 green:0.173 blue:0.290 alpha:1] forState:UIControlStateNormal];
+        self.userNameTextField.text = loggedInEmployee.name;
+    }
+
+    
+    
+    
+    
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+   
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -60,16 +99,43 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
+
     // Return the number of sections.
-    return 0;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+
     // Return the number of rows in the section.
-    return 0;
+    return 1;
+}
+
+- (IBAction)logInButtonPressed:(id)sender
+{
+    self.dataStore = [DataStore sharedInstance];
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Employee"];
+    
+    if ([[self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil] count] == 0)
+    {
+        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Employee" inManagedObjectContext:self.dataStore.managedObjectContext];
+        self.employee = [[Employee alloc]initWithEntity:entityDescription insertIntoManagedObjectContext:self.dataStore.managedObjectContext];
+        self.employee.name = self.userNameTextField.text;
+        [self.logInButton setTitle:@"Log out" forState:UIControlStateNormal];
+        [self.logInButton setTitleColor:[UIColor colorWithRed:0.875 green:0.173 blue:0.290 alpha:1] forState:UIControlStateNormal];
+        [self.dataStore saveContext];
+        [self.userNameTextField resignFirstResponder];
+    }
+    else if ([[self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil] count] != 0)
+    {
+        self.employee = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil][0];
+        self.userNameTextField.text = @"";
+        [self.logInButton setTitle:@"Log in" forState:UIControlStateNormal];
+        [self.logInButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        [self.dataStore.managedObjectContext deleteObject:self.employee];
+        [self.dataStore saveContext];
+        [self.userNameTextField resignFirstResponder];
+    }
 }
 
 /*
@@ -131,5 +197,6 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 @end
