@@ -1,23 +1,23 @@
 //
-//  StartedSessionsTableViewController.m
-//  QuidProQueue
+//  SessionsOnMapViewController.m
+//  
 //
-//  Created by Dare Ryan on 3/8/14.
-//  Copyright (c) 2014 Dare Ryan. All rights reserved.
+//  Created by Dare Ryan on 3/14/14.
+//
 //
 
-#import "StartedSessionsTableViewController.h"
-#import <FontAwesomeKit.h>
+#import "SessionsOnMapViewController.h"
 
-@interface StartedSessionsTableViewController ()
+@interface SessionsOnMapViewController ()<UITableViewDataSource, UITableViewDelegate>
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
-@implementation StartedSessionsTableViewController
+@implementation SessionsOnMapViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
@@ -27,32 +27,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
-    
-    
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    // Do any additional setup after loading the view.
 }
-
--(UITabBarItem *)tabBarItem
-{
-    
-    
-    FAKFontAwesome *tabIcon = [FAKFontAwesome tachometerIconWithSize:30];
-    [tabIcon addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor]];
-    UIImage *tabIconImage = [tabIcon imageWithSize:CGSizeMake(30,30)];
-    
-    
-    UITabBarItem *tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Sessions" image:tabIconImage selectedImage:tabIconImage];
-    return tabBarItem;
-    
-}
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -60,36 +38,41 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return 1;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
-}
+ - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+ 
+ // Configure the cell...
+ 
+ return cell;
+ }
+
 
 /*
  // Override to support conditional editing of the table view.
@@ -107,8 +90,7 @@
  if (editingStyle == UITableViewCellEditingStyleDelete) {
  // Delete the row from the data source
  [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- }
- else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ } else if (editingStyle == UITableViewCellEditingStyleInsert) {
  // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
  }
  }
@@ -133,13 +115,13 @@
 /*
  #pragma mark - Navigation
  
- // In a story board-based application, you will often want to do a little preparation before navigation
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
  {
  // Get the new view controller using [segue destinationViewController].
  // Pass the selected object to the new view controller.
  }
- 
  */
+
 
 @end

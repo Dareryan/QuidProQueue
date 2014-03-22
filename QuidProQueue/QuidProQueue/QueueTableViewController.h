@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QueueTableViewController : UITableViewController
+@interface QueueTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @end
