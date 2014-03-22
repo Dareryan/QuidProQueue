@@ -9,21 +9,16 @@
 #import "MapViewController.h"
 #import <FAKFontAwesome.h>
 #import "DataStore.h"
-#import "SessionsOnMapViewController.h"
+#import "SessionsOnMapTableViewController.h"
 
 @interface MapViewController ()
 
-@property (strong, nonatomic) IBOutlet UIButton *rubyTableLocationButton;
-@property (strong, nonatomic) IBOutlet UIButton *iOSTableLocationButton;
-@property (strong, nonatomic) IBOutlet UIButton *instructorTableLocationButton;
-@property (strong, nonatomic) IBOutlet UIButton *backPicnicTableLocationButton;
-@property (strong, nonatomic) IBOutlet UIButton *centerTablesLocationButton;
-@property (strong, nonatomic) IBOutlet UIButton *kitchenLocationButton;
-@property (strong, nonatomic) IBOutlet UIButton *presentationAreaLeftLocationButton;
-@property (strong, nonatomic) IBOutlet UIButton *presentationAreaRightLocationButton;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *mapPinButtons;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIView *contentView;
 @property (strong, nonatomic) DataStore *dataStore;
+
+- (IBAction)mapPinPressed:(id)sender;
 
 @end
 
@@ -48,23 +43,11 @@
     [mapMarkerIcon addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor]];
     UIImage *mapMarkerImage = [mapMarkerIcon imageWithSize:CGSizeMake(30,30)];
     
-    [self.rubyTableLocationButton setImage:mapMarkerImage forState:UIControlStateNormal];
-    [self.iOSTableLocationButton setImage:mapMarkerImage forState:UIControlStateNormal];
-    [self.instructorTableLocationButton setImage:mapMarkerImage forState:UIControlStateNormal];
-    [self.backPicnicTableLocationButton setImage:mapMarkerImage forState:UIControlStateNormal];
-    [self.centerTablesLocationButton setImage:mapMarkerImage forState:UIControlStateNormal];
-    [self.kitchenLocationButton setImage:mapMarkerImage forState:UIControlStateNormal];
-    [self.presentationAreaLeftLocationButton setImage:mapMarkerImage forState:UIControlStateNormal];
-    [self.presentationAreaRightLocationButton setImage:mapMarkerImage forState:UIControlStateNormal];
+    //Set Image For Buttons
     
-    [self configureMapPin:self.rubyTableLocationButton forNumberOfCustomersForAreaName:@"Ruby instruction tables"];
-    [self configureMapPin:self.iOSTableLocationButton forNumberOfCustomersForAreaName:@"iOS instruction tables"];
-    [self configureMapPin:self.instructorTableLocationButton forNumberOfCustomersForAreaName:@"Instructor table"];
-    [self configureMapPin:self.backPicnicTableLocationButton forNumberOfCustomersForAreaName:@"Back picnic table"];
-    [self configureMapPin:self.centerTablesLocationButton forNumberOfCustomersForAreaName:@"Center table"];
-    [self configureMapPin:self.kitchenLocationButton forNumberOfCustomersForAreaName:@"Kitchen"];
-    [self configureMapPin:self.presentationAreaLeftLocationButton forNumberOfCustomersForAreaName:@"Left presentation area"];
-    [self configureMapPin:self.presentationAreaRightLocationButton forNumberOfCustomersForAreaName:@"Right presentation area"];
+    for (UIButton *mapPin in self.mapPinButtons) {
+        [mapPin setImage:mapMarkerImage forState:UIControlStateNormal];
+    }
 }
 
 - (void)viewDidLoad
@@ -72,74 +55,98 @@
     [super viewDidLoad];
     [self.scrollView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.contentView setTranslatesAutoresizingMaskIntoConstraints:NO];
-    
-    
-    
-    
-	// Do any additional setup after loading the view.
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
-    self.presentationAreaLeftLocationButton.frame = CGRectMake(44, 544, 30, 30);
-    self.presentationAreaRightLocationButton.frame = CGRectMake(253, 544, 30, 30);
-    self.kitchenLocationButton.frame = CGRectMake(253, 391, 30, 30);
-    self.centerTablesLocationButton.frame = CGRectMake(81, 391, 30, 30);
-    self.backPicnicTableLocationButton.frame = CGRectMake(241, 294, 30, 30);
-    self.instructorTableLocationButton.frame = CGRectMake(71, 260, 30, 30);
-    self.iOSTableLocationButton.frame = CGRectMake(81,127, 30, 30);
-    self.rubyTableLocationButton.frame = CGRectMake(253, 127, 30, 30);
+    //Assign Frame, Color, And Location To Buttons
+    
+    for (UIButton *mapPin in self.mapPinButtons) {
+        
+        switch (mapPin.tag) {
+            case 0:
+                mapPin.frame = CGRectMake(253, 127, 30, 30);
+                [self configureMapPin:mapPin forNumberOfCustomersForAreaName:@"Ruby instruction tables"];
+                break;
+            case 1:
+                mapPin.frame = CGRectMake(81,127, 30, 30);
+                [self configureMapPin:mapPin forNumberOfCustomersForAreaName:@"iOS instruction tables"];
+                break;
+            case 2:
+                mapPin.frame = CGRectMake(71, 260, 30, 30);
+                [self configureMapPin:mapPin forNumberOfCustomersForAreaName:@"Instructor table"];
+                break;
+            case 3:
+                mapPin.frame = CGRectMake(241, 294, 30, 30);
+                [self configureMapPin:mapPin forNumberOfCustomersForAreaName:@"Back picnic table"];
+                break;
+            case 4:
+                mapPin.frame = CGRectMake(81, 391, 30, 30);
+                [self configureMapPin:mapPin forNumberOfCustomersForAreaName:@"Center table"];
+                break;
+            case 5:
+                mapPin.frame = CGRectMake(253, 391, 30, 30);
+                [self configureMapPin:mapPin forNumberOfCustomersForAreaName:@"Kitchen"];
+                break;
+            case 6:
+                mapPin.frame = CGRectMake(44, 544, 30, 30);
+                [self configureMapPin:mapPin forNumberOfCustomersForAreaName:@"Left presentation area"];
+                break;
+            case 7:
+                mapPin.frame = CGRectMake(253, 544, 30, 30);
+                [self configureMapPin:mapPin forNumberOfCustomersForAreaName:@"Right presentation area"];
+            default:
+                break;
+        }
+    }
+}
+
+- (IBAction)mapPinPressed:(id)sender
+{
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    SessionsOnMapTableViewController *sessionsOnMapTVC = [storyBoard instantiateViewControllerWithIdentifier:@"SessionsOnMapTableViewController"];
+    
+    switch (((UIButton *)sender).tag)
+    {
+        case 0:
+            sessionsOnMapTVC.locationArea = @"Ruby instruction tables";
+            break;
+        case 1:
+            sessionsOnMapTVC.locationArea = @"iOS instruction tables";
+            break;
+        case 2:
+            sessionsOnMapTVC.locationArea = @"Instructor table";
+            break;
+        case 3:
+            sessionsOnMapTVC.locationArea = @"Back picnic table";
+            break;
+        case 4:
+            sessionsOnMapTVC.locationArea = @"Center table";
+            break;
+        case 5:
+            sessionsOnMapTVC.locationArea = @"Kitchen";
+            break;
+        case 6:
+            sessionsOnMapTVC.locationArea = @"Left presentation area";
+            break;
+        case 7:
+            sessionsOnMapTVC.locationArea = @"Right presentation area";
+        default:
+            break;
+    }
+    
+    [self presentViewController:[[UINavigationController alloc]initWithRootViewController:sessionsOnMapTVC] animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    SessionsOnMapViewController *sessionsOnMapVC = [segue destinationViewController];
-    
-    if ([segue.identifier isEqualToString:@"presentationAreaLeftLocationSegue"])
-    {
-        sessionsOnMapVC.locationArea = @"Left presentation area";
-    }
-    else if ([segue.identifier isEqualToString:@"kitchenLocationSegue"])
-    {
-        sessionsOnMapVC.locationArea = @"Kitchen";
-    }
-    else if ([segue.identifier isEqualToString:@"rubyTableLocationSegue"])
-    {
-        sessionsOnMapVC.locationArea = @"Ruby instruction tables";
-    }
-    else if ([segue.identifier isEqualToString:@"iOSTableLocationSegue"])
-    {
-        sessionsOnMapVC.locationArea = @"iOS instruction tables";
-    }
-    else if ([segue.identifier isEqualToString:@"instructorTableLocationSegue"])
-    {
-        sessionsOnMapVC.locationArea = @"Instructor table";
-    }
-    else if ([segue.identifier isEqualToString:@"backPicnicTableLocationSegue"])
-    {
-        sessionsOnMapVC.locationArea = @"Back picnic table";
-    }
-    else if ([segue.identifier isEqualToString:@"centerTablesLocationSegue"])
-    {
-        sessionsOnMapVC.locationArea = @"Center table";
-    }
-    else if ([segue.identifier isEqualToString:@"presentationAreaRightLocationSegue"])
-    {
-        sessionsOnMapVC.locationArea = @"Right presentation area";
-    }
-    
-    
-}
 
-#pragma mark configuration methods
+#pragma mark configuration methods for tabBar and buttons
 
 -(UITabBarItem *)tabBarItem
 {
@@ -177,6 +184,7 @@
         mapPin.enabled = YES;
     }
 }
+
 
 
 

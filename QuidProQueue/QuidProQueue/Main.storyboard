@@ -69,7 +69,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="CustomerDetailTableViewController" id="Cbc-MM-Y6L" customClass="CustomerDetailTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="nZ8-A7-You">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -366,7 +366,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tnh-oo-iP7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="652" y="-1795"/>
+            <point key="canvasLocation" x="652" y="-807"/>
         </scene>
         <!--Map View Controller - Item-->
         <scene sceneID="A1x-JW-hwA">
@@ -392,7 +392,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLE-1G-6aK">
+                                            <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLE-1G-6aK">
                                                 <rect key="frame" x="-800" y="-800" width="30" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -401,10 +401,10 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="uBl-O2-ysT" kind="modal" identifier="presentationAreaLeftLocationSegue" modalTransitionStyle="flipHorizontal" id="P81-Nm-6LF"/>
+                                                    <action selector="mapPinPressed:" destination="BTU-dc-tLt" eventType="touchUpInside" id="f0l-Qh-rq6"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePh-Bt-B8g">
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePh-Bt-B8g">
                                                 <rect key="frame" x="-800" y="-800" width="30" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -413,7 +413,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="uBl-O2-ysT" kind="modal" identifier="kitchenLocationSegue" modalTransitionStyle="flipHorizontal" id="xY6-Be-IlI"/>
+                                                    <action selector="mapPinPressed:" destination="BTU-dc-tLt" eventType="touchUpInside" id="S9j-JY-PC7"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ul-I7-uv2">
@@ -425,10 +425,10 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="uBl-O2-ysT" kind="modal" identifier="rubyTableLocationSegue" modalTransitionStyle="flipHorizontal" id="dCS-gE-Ccx"/>
+                                                    <action selector="mapPinPressed:" destination="BTU-dc-tLt" eventType="touchUpInside" id="cif-Cf-kxj"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KvZ-UC-xIG">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KvZ-UC-xIG">
                                                 <rect key="frame" x="-800" y="-800" width="30" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -437,10 +437,10 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="uBl-O2-ysT" kind="modal" identifier="iOSTableLocationSegue" modalTransitionStyle="flipHorizontal" id="tRW-0p-fk8"/>
+                                                    <action selector="mapPinPressed:" destination="BTU-dc-tLt" eventType="touchUpInside" id="JoW-Ax-b7n"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Oe-8x-IW1">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Oe-8x-IW1">
                                                 <rect key="frame" x="-800" y="-800" width="30" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -449,10 +449,10 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="uBl-O2-ysT" kind="modal" identifier="instructorTableLocationSegue" modalTransitionStyle="flipHorizontal" id="WRy-Xb-aVE"/>
+                                                    <action selector="mapPinPressed:" destination="BTU-dc-tLt" eventType="touchUpInside" id="JlP-2f-hwv"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d8o-um-0F2">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d8o-um-0F2">
                                                 <rect key="frame" x="-800" y="-800" width="30" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -461,10 +461,10 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="uBl-O2-ysT" kind="modal" identifier="backPicnicTableLocationSegue" modalTransitionStyle="flipHorizontal" id="hiB-bz-qL1"/>
+                                                    <action selector="mapPinPressed:" destination="BTU-dc-tLt" eventType="touchUpInside" id="ys4-9o-kua"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rxd-jb-SNC">
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rxd-jb-SNC">
                                                 <rect key="frame" x="-800" y="-800" width="30" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -473,10 +473,10 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="uBl-O2-ysT" kind="modal" identifier="centerTablesLocationSegue" modalTransitionStyle="flipHorizontal" id="icM-zD-NIx"/>
+                                                    <action selector="mapPinPressed:" destination="BTU-dc-tLt" eventType="touchUpInside" id="axj-Cd-w2U"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cp-Oc-rWh">
+                                            <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cp-Oc-rWh">
                                                 <rect key="frame" x="-800" y="-800" width="30" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -485,7 +485,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="uBl-O2-ysT" kind="modal" identifier="presentationAreaRightLocationSegue" modalTransitionStyle="flipHorizontal" id="hgF-dm-jw6"/>
+                                                    <action selector="mapPinPressed:" destination="BTU-dc-tLt" eventType="touchUpInside" id="ROx-9N-OB2"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -523,21 +523,21 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="800"/>
                     <connections>
-                        <outlet property="backPicnicTableLocationButton" destination="d8o-um-0F2" id="QoH-wo-SeT"/>
-                        <outlet property="centerTablesLocationButton" destination="Rxd-jb-SNC" id="fOk-8n-p3s"/>
                         <outlet property="contentView" destination="89m-7n-S2q" id="dKY-Ff-D0a"/>
-                        <outlet property="iOSTableLocationButton" destination="KvZ-UC-xIG" id="6C8-gN-ig0"/>
-                        <outlet property="instructorTableLocationButton" destination="3Oe-8x-IW1" id="Cd4-Su-iYU"/>
-                        <outlet property="kitchenLocationButton" destination="ePh-Bt-B8g" id="5Jd-QB-Kfw"/>
-                        <outlet property="presentationAreaLeftLocationButton" destination="dLE-1G-6aK" id="VR9-wH-nY2"/>
-                        <outlet property="presentationAreaRightLocationButton" destination="6cp-Oc-rWh" id="8pI-pQ-eai"/>
-                        <outlet property="rubyTableLocationButton" destination="0Ul-I7-uv2" id="oiK-c8-MvH"/>
                         <outlet property="scrollView" destination="SwU-aC-T7t" id="J3L-Pn-UJn"/>
+                        <outletCollection property="mapPinButtons" destination="dLE-1G-6aK" id="O5N-DW-0O3"/>
+                        <outletCollection property="mapPinButtons" destination="ePh-Bt-B8g" id="GQV-ve-1fT"/>
+                        <outletCollection property="mapPinButtons" destination="0Ul-I7-uv2" id="cRr-tF-fLc"/>
+                        <outletCollection property="mapPinButtons" destination="KvZ-UC-xIG" id="nBF-qB-hdF"/>
+                        <outletCollection property="mapPinButtons" destination="3Oe-8x-IW1" id="wxc-1N-UGt"/>
+                        <outletCollection property="mapPinButtons" destination="d8o-um-0F2" id="38Z-Ie-tVO"/>
+                        <outletCollection property="mapPinButtons" destination="Rxd-jb-SNC" id="DFV-CA-CfV"/>
+                        <outletCollection property="mapPinButtons" destination="6cp-Oc-rWh" id="8Yz-9f-qmG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cG7-fd-JY3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="28" y="-935"/>
+            <point key="canvasLocation" x="36" y="-1883"/>
         </scene>
         <!--Select Customer Location Map View Controller - Item-->
         <scene sceneID="xLv-yx-fgf">
@@ -706,61 +706,43 @@
             </objects>
             <point key="canvasLocation" x="2544" y="-112"/>
         </scene>
-        <!--Sessions On Map View Controller-->
-        <scene sceneID="67d-uf-y4D">
+        <!--Sessions On Map Table View Controller-->
+        <scene sceneID="Kwk-KC-Crh">
             <objects>
-                <viewController id="uBl-O2-ysT" customClass="SessionsOnMapViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Adu-u2-bCp"/>
-                        <viewControllerLayoutGuide type="bottom" id="Eo8-eM-lbx"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="6Co-XB-Tlz">
+                <tableViewController storyboardIdentifier="SessionsOnMapTableViewController" id="seC-Rg-NvN" customClass="SessionsOnMapTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="69p-wl-COs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="78" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0kM-Tb-Ye0">
-                                <rect key="frame" x="0.0" y="92" width="320" height="476"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="DTO-cV-941" detailTextLabel="Q08-WU-vcd" rowHeight="78" style="IBUITableViewCellStyleSubtitle" id="w6m-ZS-y7K">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="78"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w6m-ZS-y7K" id="bZS-zK-0db">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="77"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Test" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DTO-cV-941">
-                                                    <rect key="frame" x="15" y="20" width="33" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Test" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="23" id="Q08-WU-vcd">
-                                                    <rect key="frame" x="15" y="42" width="23" height="15"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="sG3-43-BmU"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="tableView" destination="0kM-Tb-Ye0" id="FjN-zj-UvP"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sSq-jx-vUc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="McM-fr-B7q">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="McM-fr-B7q" id="0fb-NG-eRc">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Cbc-MM-Y6L" kind="push" id="jhm-6g-0iR"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="seC-Rg-NvN" id="FlN-p2-4PG"/>
+                            <outlet property="delegate" destination="seC-Rg-NvN" id="dRp-kp-alc"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="eda-5z-kL7">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="Cx2-NB-ri8">
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="seC-Rg-NvN" id="Jne-Lj-UT1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LVr-of-zj0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="652" y="-819"/>
+            <point key="canvasLocation" x="652" y="770"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="XK1-bh-3na">
@@ -779,7 +761,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OQg-JS-lbr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="16" y="-21"/>
+            <point key="canvasLocation" x="36" y="-21"/>
         </scene>
         <!--Settings Table View Controller - Item-->
         <scene sceneID="ELJ-up-bW7">
@@ -808,7 +790,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vk0-br-3j9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="16" y="783"/>
+            <point key="canvasLocation" x="36" y="1571"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="snE-jM-g0Z">
@@ -845,7 +827,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q4e-dd-nwK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="16" y="-1795"/>
+            <point key="canvasLocation" x="36" y="-807"/>
         </scene>
         <!--Current Customer Location View Controller - Item-->
         <scene sceneID="hea-Q3-9Gs">
@@ -856,11 +838,11 @@
                         <viewControllerLayoutGuide type="bottom" id="11e-EM-uam"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="axn-9a-OGX">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="701"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="750"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3dV-rf-ap4">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="701"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="750"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u7K-Fj-2c0">
@@ -992,6 +974,24 @@
             </objects>
             <point key="canvasLocation" x="2049" y="692"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GXP-df-f54">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LPh-Dz-Wjn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hkd-AS-Thm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="seC-Rg-NvN" kind="relationship" relationship="rootViewController" id="9Rg-8j-EAA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="teJ-NE-feO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="36" y="770"/>
+        </scene>
     </scenes>
     <resources>
         <image name="StoreMap.png" width="369" height="768"/>
@@ -1002,7 +1002,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="8qb-H7-azu"/>
-        <segue reference="WRy-Xb-aVE"/>
+        <segue reference="jhm-6g-0iR"/>
     </inferredMetricsTieBreakers>
 </document>
