@@ -54,12 +54,6 @@
         [self.logInButton setTitleColor:[UIColor colorWithRed:0.875 green:0.173 blue:0.290 alpha:1] forState:UIControlStateNormal];
         self.userNameTextField.text = loggedInEmployee.name;
     }
-
-    
-    
-    
-    
-    
 }
 
 - (void)viewDidLoad
@@ -99,15 +93,11 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-
-    // Return the number of sections.
     return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
-    // Return the number of rows in the section.
     return 1;
 }
 

@@ -10,6 +10,7 @@
 #import <FAKFontAwesome.h>
 #import "DataStore.h"
 #import "SessionsOnMapTableViewController.h"
+#import "Session.h"
 
 @interface MapViewController ()
 
@@ -17,6 +18,7 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIView *contentView;
 @property (strong, nonatomic) DataStore *dataStore;
+@property (strong, nonatomic) NSMutableArray *arrayWithCustomersWithEndedSessionsRemoved;
 
 - (IBAction)mapPinPressed:(id)sender;
 
@@ -163,13 +165,23 @@
     NSFetchRequest *locationFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Location"];
     NSArray *locationsArray = [self.dataStore.managedObjectContext executeFetchRequest:locationFetchRequest error:nil];
     NSInteger customerCount = 0;
+    NSMutableArray *arrayWithEndedSessionsRemoved = [[NSMutableArray alloc]init];
+    
     
     for (Location *location in locationsArray) {
         if ([location.area isEqualToString:areaName]) {
-            customerCount = [[location.customers allObjects]count];
+            //customerCount = [[location.customers allObjects]count];
+            for (Customer *presentCustomer in location.customers)
+            {
+                if (!presentCustomer.session || [presentCustomer.session.isStarted boolValue] == YES)
+                {
+                    [arrayWithEndedSessionsRemoved addObject:presentCustomer];
+                }
+            }
+            customerCount = [arrayWithEndedSessionsRemoved count];
         }
     }
-    if (customerCount == 0) {
+    if (customerCount < 1) {
         mapPin.tintColor = [UIColor grayColor];
         mapPin.enabled = NO;
     }

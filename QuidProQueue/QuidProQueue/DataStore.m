@@ -147,7 +147,7 @@
     NSMutableArray *locationArray = [NSMutableArray arrayWithArray:[context executeFetchRequest:fetchRequest error:nil]];
     NSPredicate *locationPredicate = [NSPredicate predicateWithFormat:@"area = %@", name];
     NSArray *resultsArray = [locationArray filteredArrayUsingPredicate:locationPredicate];
-
+    
     if ([resultsArray count] == 0)
     {
         NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:context];

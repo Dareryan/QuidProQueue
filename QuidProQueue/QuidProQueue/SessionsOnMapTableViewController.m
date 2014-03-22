@@ -11,10 +11,11 @@
 #import "Customer.h"
 #import "Location.h"
 #import "CustomerDetailTableViewController.h"
+#import "Session.h"
 
 @interface SessionsOnMapTableViewController ()
 
-@property (strong, nonatomic) NSArray *customersAtLocationArray;
+@property (strong, nonatomic) NSMutableArray *customersPresentAtLocationArray;
 @property (strong, nonatomic) DataStore *dataStore;
 
 - (IBAction)doneButtonPressed:(id)sender;
@@ -35,11 +36,24 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.dataStore = [DataStore sharedInstance];
+    self.customersPresentAtLocationArray = [[NSMutableArray alloc]init];
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Location"];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"area = %@",self.locationArea];
     fetchRequest.predicate = predicate;
     Location *location = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil][0];
-    self.customersAtLocationArray = [location.customers allObjects];
+    NSArray *allCustomersForLocation = [location.customers allObjects];
+    
+    for (Customer *presentCustomer in allCustomersForLocation)
+    {
+        if (!presentCustomer.session || [presentCustomer.session.isStarted boolValue] == YES)
+        {
+           [self.customersPresentAtLocationArray addObject:presentCustomer];
+        }
+    
+}
+
+
+
     [self.tableView reloadData];
 }
 
@@ -71,7 +85,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.customersAtLocationArray count];
+    return [self.customersPresentAtLocationArray count];
 }
 
 
@@ -79,7 +93,7 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    Customer *customerAtIndexPath = self.customersAtLocationArray[indexPath.row];
+    Customer *customerAtIndexPath = self.customersPresentAtLocationArray[indexPath.row];
     
     NSDate *currentTime= [NSDate date];
     NSTimeInterval timeElapsed = [currentTime timeIntervalSinceDate:customerAtIndexPath.arrivalTime];
@@ -107,7 +121,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     CustomerDetailTableViewController *customerDatilTVC = segue.destinationViewController;
-    Customer *passingCustomer = self.customersAtLocationArray[[self.tableView indexPathForSelectedRow].row];
+    Customer *passingCustomer = self.customersPresentAtLocationArray[[self.tableView indexPathForSelectedRow].row];
     customerDatilTVC.passedCustomer = passingCustomer;
 }
 /*

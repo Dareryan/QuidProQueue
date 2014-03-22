@@ -8,8 +8,15 @@
 
 #import "StartedSessionsTableViewController.h"
 #import <FontAwesomeKit.h>
+#import "DataStore.h"
+#import "Customer.h"
+#import "Location.h"
+#import "Session.h"
 
 @interface StartedSessionsTableViewController ()
+
+@property (strong, nonatomic) DataStore *dataStore;
+@property (strong, nonatomic) NSArray *customersWithSessions;
 
 @end
 
@@ -22,6 +29,30 @@
         // Custom initialization
     }
     return self;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+    
+    self.dataStore = [DataStore sharedInstance];
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Customer"];
+   
+    NSMutableArray *allCustomers = [[NSMutableArray alloc] initWithArray:[self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil]];
+    
+    NSMutableArray *customersWithoutSessions = [[NSMutableArray alloc]init];
+    
+    for (Customer *customer in allCustomers) {
+        if (!customer.session)
+        {
+            [customersWithoutSessions addObject:customer];
+        }
+    }
+    
+    [allCustomers removeObjectsInArray:customersWithoutSessions];
+    self.customersWithSessions = allCustomers;
+    
+    [self.tableView reloadData];
 }
 
 - (void)viewDidLoad
@@ -64,32 +95,28 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
+
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+
     // Return the number of rows in the section.
-    return 0;
+    return [self.customersWithSessions count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    Customer *customerAtIndexPath = self.customersWithSessions[indexPath.row];
+    cell.textLabel.text = customerAtIndexPath.name;
     return cell;
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
-}
+
 
 /*
  // Override to support conditional editing of the table view.
