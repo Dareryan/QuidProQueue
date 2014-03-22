@@ -10,4 +10,5 @@
 
 @interface SessionsOnMapViewController : UIViewController
 
+@property (strong, nonatomic) NSString *locationArea;
 @end

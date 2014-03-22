@@ -33,6 +33,8 @@
     self = [super init];
     if (self) {
         NSFetchRequest *fetchRequest =[[NSFetchRequest alloc]initWithEntityName:@"Customer"];
+        NSPredicate *sessionIsStartedPredicate = [NSPredicate predicateWithFormat:@"session.isStarted = nil"];
+        fetchRequest.predicate = sessionIsStartedPredicate;
         NSSortDescriptor *arrivalTimeDescriptor = [[NSSortDescriptor alloc]initWithKey:@"arrivalTime" ascending:YES];
         fetchRequest.sortDescriptors = @[arrivalTimeDescriptor];
         _fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
@@ -135,6 +137,35 @@
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+#pragma mark - Custom Methods
+
++(void)addLocationWithAreaName:(NSString *)name toCustomer:(Customer *)customer inManagedObjectContext:(NSManagedObjectContext *)context
+{
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Location"];
+    NSMutableArray *locationArray = [NSMutableArray arrayWithArray:[context executeFetchRequest:fetchRequest error:nil]];
+    NSPredicate *locationPredicate = [NSPredicate predicateWithFormat:@"area = %@", name];
+    NSArray *resultsArray = [locationArray filteredArrayUsingPredicate:locationPredicate];
+
+    if ([resultsArray count] == 0)
+    {
+        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:context];
+        
+        Location *newLocation = [[Location alloc]initWithEntity:entityDescription insertIntoManagedObjectContext:context];
+        
+        newLocation.area = name;
+        
+        [newLocation addCustomersObject:customer];
+    }
+    
+    else
+    {
+        customer.location = resultsArray[0];
+    }
+    
+    
+    
 }
 
 @end

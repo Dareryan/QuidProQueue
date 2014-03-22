@@ -119,316 +119,59 @@
  }
  */
 
-- (IBAction)presentationAreaLeftLocationButtonTapped:(id)sender {
+- (IBAction)presentationAreaLeftLocationButtonTapped:(id)sender
+{
+    [DataStore addLocationWithAreaName:@"Left presentation area" toCustomer:self.passedCustomer inManagedObjectContext:self.dataStore.managedObjectContext];
     
-    if ([self.locationsArray count]==0)
-    {
-        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:self.dataStore.managedObjectContext];
-        
-        Location *newLocation = [[Location alloc]initWithEntity:entityDescription insertIntoManagedObjectContext:self.dataStore.managedObjectContext];
-        
-        newLocation.area = @"Left presentation area";
-        
-        self.passedCustomer.location = newLocation;
-        
-        [self dismissViewControllerAnimated:YES completion:nil];
-        
-    }else{
-        
-        for (Location *location in self.locationsArray) {
-            if ([location.area isEqualToString:@"Left presentation area"])
-            {
-                [location addCustomersObject:self.passedCustomer];
-                
-                [self dismissViewControllerAnimated:YES completion:nil];
-                
-            }else{
-                
-                NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:self.dataStore.managedObjectContext];
-                
-                Location *newLocation = [[Location alloc]initWithEntity:entityDescription insertIntoManagedObjectContext:self.dataStore.managedObjectContext];
-                
-                newLocation.area = @"Left presentation area";
-                
-                self.passedCustomer.location = newLocation;
-                
-                [self dismissViewControllerAnimated:YES completion:nil];
-            }
-        }
-    }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)kitchenLocationButtonTapped:(id)sender {
+- (IBAction)kitchenLocationButtonTapped:(id)sender
+{
+    [DataStore addLocationWithAreaName:@"Kitchen" toCustomer:self.passedCustomer inManagedObjectContext:self.dataStore.managedObjectContext];
     
-    if ([self.locationsArray count]==0)
-    {
-        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:self.dataStore.managedObjectContext];
-        
-        Location *newLocation = [[Location alloc]initWithEntity:entityDescription insertIntoManagedObjectContext:self.dataStore.managedObjectContext];
-        
-        newLocation.area = @"Kitchen";
-        
-        self.passedCustomer.location = newLocation;
-        
-        [self dismissViewControllerAnimated:YES completion:nil];
-        
-    }else{
-        
-        for (Location *location in self.locationsArray) {
-            if ([location.area isEqualToString:@"Kitchen"])
-            {
-                [location addCustomersObject:self.passedCustomer];
-                
-                [self dismissViewControllerAnimated:YES completion:nil];
-                
-            }else{
-                
-                NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:self.dataStore.managedObjectContext];
-                
-                Location *newLocation = [[Location alloc]initWithEntity:entityDescription insertIntoManagedObjectContext:self.dataStore.managedObjectContext];
-                
-                newLocation.area = @"Kitchen";
-                
-                self.passedCustomer.location = newLocation;
-                
-                [self dismissViewControllerAnimated:YES completion:nil];
-            }
-        }
-    }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)rubyTableLocationButtonTapped:(id)sender {
+- (IBAction)rubyTableLocationButtonTapped:(id)sender
+{
+    [DataStore addLocationWithAreaName:@"Ruby instruction tables" toCustomer:self.passedCustomer inManagedObjectContext:self.dataStore.managedObjectContext];
     
-    if ([self.locationsArray count]==0)
-    {
-        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:self.dataStore.managedObjectContext];
-        
-        Location *newLocation = [[Location alloc]initWithEntity:entityDescription insertIntoManagedObjectContext:self.dataStore.managedObjectContext];
-        
-        newLocation.area = @"Ruby instruction tables";
-        
-        self.passedCustomer.location = newLocation;
-        
-        [self dismissViewControllerAnimated:YES completion:nil];
-        
-    }else{
-        
-        for (Location *location in self.locationsArray) {
-            if ([location.area isEqualToString:@"Ruby instruction tables"])
-            {
-                [location addCustomersObject:self.passedCustomer];
-                
-                [self dismissViewControllerAnimated:YES completion:nil];
-                
-            }else{
-                
-                NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:self.dataStore.managedObjectContext];
-                
-                Location *newLocation = [[Location alloc]initWithEntity:entityDescription insertIntoManagedObjectContext:self.dataStore.managedObjectContext];
-                
-                newLocation.area = @"Ruby instruction tables";
-                
-                self.passedCustomer.location = newLocation;
-                
-                [self dismissViewControllerAnimated:YES completion:nil];
-            }
-        }
-    }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)iOSTableLocationButtonTapped:(id)sender {
+- (IBAction)iOSTableLocationButtonTapped:(id)sender
+{
+    [DataStore addLocationWithAreaName:@"iOS instruction tables" toCustomer:self.passedCustomer inManagedObjectContext:self.dataStore.managedObjectContext];
     
-    if ([self.locationsArray count]==0)
-    {
-        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:self.dataStore.managedObjectContext];
-        
-        Location *newLocation = [[Location alloc]initWithEntity:entityDescription insertIntoManagedObjectContext:self.dataStore.managedObjectContext];
-        
-        newLocation.area = @"iOS instruction tables";
-        
-        self.passedCustomer.location = newLocation;
-        
-        [self dismissViewControllerAnimated:YES completion:nil];
-        
-    }else{
-        
-        for (Location *location in self.locationsArray) {
-            if ([location.area isEqualToString:@"iOS instruction tables"])
-            {
-                [location addCustomersObject:self.passedCustomer];
-                
-                [self dismissViewControllerAnimated:YES completion:nil];
-                
-            }else{
-                
-                NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:self.dataStore.managedObjectContext];
-                
-                Location *newLocation = [[Location alloc]initWithEntity:entityDescription insertIntoManagedObjectContext:self.dataStore.managedObjectContext];
-                
-                newLocation.area = @"iOS instruction tables";
-                
-                self.passedCustomer.location = newLocation;
-                
-                [self dismissViewControllerAnimated:YES completion:nil];
-            }
-        }
-    }
-    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)instructorTableLocationButtonTapped:(id)sender {
+- (IBAction)instructorTableLocationButtonTapped:(id)sender
+{
+    [DataStore addLocationWithAreaName:@"Instructor table" toCustomer:self.passedCustomer inManagedObjectContext:self.dataStore.managedObjectContext];
     
-    if ([self.locationsArray count]==0)
-    {
-        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:self.dataStore.managedObjectContext];
-        
-        Location *newLocation = [[Location alloc]initWithEntity:entityDescription insertIntoManagedObjectContext:self.dataStore.managedObjectContext];
-        
-        newLocation.area = @"Instructor table";
-        
-        self.passedCustomer.location = newLocation;
-        
-        [self dismissViewControllerAnimated:YES completion:nil];
-        
-    }else{
-        
-        for (Location *location in self.locationsArray) {
-            if ([location.area isEqualToString:@"Instructor table"])
-            {
-                [location addCustomersObject:self.passedCustomer];
-                
-                [self dismissViewControllerAnimated:YES completion:nil];
-                
-            }else{
-                
-                NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:self.dataStore.managedObjectContext];
-                
-                Location *newLocation = [[Location alloc]initWithEntity:entityDescription insertIntoManagedObjectContext:self.dataStore.managedObjectContext];
-                
-                newLocation.area = @"Instructor table";
-                
-                self.passedCustomer.location = newLocation;
-                
-                [self dismissViewControllerAnimated:YES completion:nil];
-            }
-        }
-    }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)backPicnicTableLocationButtonTapped:(id)sender {
+- (IBAction)backPicnicTableLocationButtonTapped:(id)sender
+{
+    [DataStore addLocationWithAreaName:@"Back picnic table" toCustomer:self.passedCustomer inManagedObjectContext:self.dataStore.managedObjectContext];
     
-    if ([self.locationsArray count]==0)
-    {
-        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:self.dataStore.managedObjectContext];
-        
-        Location *newLocation = [[Location alloc]initWithEntity:entityDescription insertIntoManagedObjectContext:self.dataStore.managedObjectContext];
-        
-        newLocation.area = @"Back picnic table";
-        
-        self.passedCustomer.location = newLocation;
-        
-        [self dismissViewControllerAnimated:YES completion:nil];
-        
-    }else{
-        
-        for (Location *location in self.locationsArray) {
-            if ([location.area isEqualToString:@"Back picnic table"])
-            {
-                [location addCustomersObject:self.passedCustomer];
-                
-                [self dismissViewControllerAnimated:YES completion:nil];
-                
-            }else{
-                
-                NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:self.dataStore.managedObjectContext];
-                
-                Location *newLocation = [[Location alloc]initWithEntity:entityDescription insertIntoManagedObjectContext:self.dataStore.managedObjectContext];
-                
-                newLocation.area = @"Back picnic table";
-                
-                self.passedCustomer.location = newLocation;
-                
-                [self dismissViewControllerAnimated:YES completion:nil];
-            }
-        }
-    }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)centerTablesLocationButtonTapped:(id)sender {
+- (IBAction)centerTablesLocationButtonTapped:(id)sender
+{
+    [DataStore addLocationWithAreaName:@"Center table" toCustomer:self.passedCustomer inManagedObjectContext:self.dataStore.managedObjectContext];
     
-    if ([self.locationsArray count]==0)
-    {
-        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:self.dataStore.managedObjectContext];
-        
-        Location *newLocation = [[Location alloc]initWithEntity:entityDescription insertIntoManagedObjectContext:self.dataStore.managedObjectContext];
-        
-        newLocation.area = @"Center table";
-        
-        self.passedCustomer.location = newLocation;
-        
-        [self dismissViewControllerAnimated:YES completion:nil];
-        
-    }else{
-        
-        for (Location *location in self.locationsArray) {
-            
-            if ([location.area isEqualToString:@"Center table"])
-            {
-                [location addCustomersObject:self.passedCustomer];
-                
-                [self dismissViewControllerAnimated:YES completion:nil];
-                
-            }else{
-                
-                NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:self.dataStore.managedObjectContext];
-                
-                Location *newLocation = [[Location alloc]initWithEntity:entityDescription insertIntoManagedObjectContext:self.dataStore.managedObjectContext];
-                
-                newLocation.area = @"Center table";
-                
-                self.passedCustomer.location = newLocation;
-                
-                [self dismissViewControllerAnimated:YES completion:nil];
-            }
-        }
-    }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)presentationAreaRightLocationButtonTapped:(id)sender {
+- (IBAction)presentationAreaRightLocationButtonTapped:(id)sender
+{
+    [DataStore addLocationWithAreaName:@"Right presentation area" toCustomer:self.passedCustomer inManagedObjectContext:self.dataStore.managedObjectContext];
     
-    if ([self.locationsArray count]==0)
-    {
-        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:self.dataStore.managedObjectContext];
-        
-        Location *newLocation = [[Location alloc]initWithEntity:entityDescription insertIntoManagedObjectContext:self.dataStore.managedObjectContext];
-        
-        newLocation.area = @"Right presentation area";
-        
-        self.passedCustomer.location = newLocation;
-        
-        [self dismissViewControllerAnimated:YES completion:nil];
-        
-    }else{
-        
-        for (Location *location in self.locationsArray) {
-            if ([location.area isEqualToString:@"Right presentation area"])
-            {
-                [location addCustomersObject:self.passedCustomer];
-                
-                [self dismissViewControllerAnimated:YES completion:nil];
-                
-            }else{
-                NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:self.dataStore.managedObjectContext];
-                
-                Location *newLocation = [[Location alloc]initWithEntity:entityDescription insertIntoManagedObjectContext:self.dataStore.managedObjectContext];
-                
-                newLocation.area = @"Right presentation area";
-                
-                self.passedCustomer.location = newLocation;
-                
-                [self dismissViewControllerAnimated:YES completion:nil];
-            }
-        }
-    }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

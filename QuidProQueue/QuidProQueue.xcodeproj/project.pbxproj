@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		451B21E118DDDC1100E01D72 /* Customer+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 451B21E018DDDC1100E01D72 /* Customer+Methods.m */; };
 		453E439218DCB24B0038604B /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 453E439118DCB24B0038604B /* DataStore.m */; };
 		453E43A618DCB42D0038604B /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = 453E43A518DCB42D0038604B /* Employee.m */; };
 		453E43A918DCB42D0038604B /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 453E43A818DCB42D0038604B /* Session.m */; };
@@ -52,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		451B21DF18DDDC1100E01D72 /* Customer+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Customer+Methods.h"; sourceTree = "<group>"; };
+		451B21E018DDDC1100E01D72 /* Customer+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Customer+Methods.m"; sourceTree = "<group>"; };
 		453E439018DCB24B0038604B /* DataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataStore.h; path = QuidProQueue/DataStore.h; sourceTree = "<group>"; };
 		453E439118DCB24B0038604B /* DataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataStore.m; path = QuidProQueue/DataStore.m; sourceTree = "<group>"; };
 		453E43A418DCB42D0038604B /* Employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Employee.h; path = QuidProQueue/Employee.h; sourceTree = "<group>"; };
@@ -161,6 +164,8 @@
 			children = (
 				4598F14418DCC5DA003A8B4D /* Customer.h */,
 				4598F14518DCC5DA003A8B4D /* Customer.m */,
+				451B21DF18DDDC1100E01D72 /* Customer+Methods.h */,
+				451B21E018DDDC1100E01D72 /* Customer+Methods.m */,
 				453E43AA18DCB42D0038604B /* Location.h */,
 				453E43AB18DCB42D0038604B /* Location.m */,
 				453E43A718DCB42D0038604B /* Session.h */,
@@ -400,6 +405,7 @@
 				4551003618CB75670008791B /* StartedSessionsTableViewController.m in Sources */,
 				454F691C18D3925F00595B4E /* SelectCustomerLocationMapViewController.m in Sources */,
 				453E43AC18DCB42D0038604B /* Location.m in Sources */,
+				451B21E118DDDC1100E01D72 /* Customer+Methods.m in Sources */,
 				4551003C18CB75BB0008791B /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

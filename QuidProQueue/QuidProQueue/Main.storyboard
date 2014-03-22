@@ -69,14 +69,14 @@
             <objects>
                 <tableViewController storyboardIdentifier="CustomerDetailTableViewController" id="Cbc-MM-Y6L" customClass="CustomerDetailTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="nZ8-A7-You">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
                             <tableViewSection id="UvL-JU-E1C">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="MTJ-IU-ekx">
-                                        <rect key="frame" x="0.0" y="35" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="99" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MTJ-IU-ekx" id="wQz-CX-dhY">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
@@ -96,7 +96,7 @@
                             <tableViewSection id="pTa-3L-HIj">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="Fb6-tY-i6W">
-                                        <rect key="frame" x="0.0" y="115" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="179" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fb6-tY-i6W" id="lxH-33-epo">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
@@ -116,7 +116,7 @@
                             <tableViewSection id="R7e-PC-kKN">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="xBd-Sh-f3D">
-                                        <rect key="frame" x="0.0" y="195" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="259" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xBd-Sh-f3D" id="zgN-xI-oZr">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
@@ -136,7 +136,7 @@
                             <tableViewSection id="lvC-Kw-Y09">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="E2R-OQ-TdU">
-                                        <rect key="frame" x="0.0" y="275" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="339" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E2R-OQ-TdU" id="Uba-RV-yZP">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="59"/>
@@ -160,7 +160,7 @@
                             <tableViewSection id="9As-0R-Dc3">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="UGM-Hl-F1W">
-                                        <rect key="frame" x="0.0" y="355" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="419" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UGM-Hl-F1W" id="EZB-il-RIF">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -194,7 +194,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JE3-Jq-xAd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1460" y="484"/>
+            <point key="canvasLocation" x="1422" y="783"/>
         </scene>
         <!--Add Customer Table View Controller-->
         <scene sceneID="6vd-BK-Zgg">
@@ -309,7 +309,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sc0-jb-Vya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1913" y="-344"/>
+            <point key="canvasLocation" x="1997" y="-21"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="LQt-Df-B5A">
@@ -401,7 +401,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="uBl-O2-ysT" kind="modal" identifier="presentationAreaLeftLocationSegue" modalTransitionStyle="partialCurl" id="P81-Nm-6LF"/>
+                                                    <segue destination="uBl-O2-ysT" kind="modal" identifier="presentationAreaLeftLocationSegue" modalTransitionStyle="flipHorizontal" id="P81-Nm-6LF"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePh-Bt-B8g">
@@ -413,7 +413,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="uBl-O2-ysT" kind="modal" identifier="kitchenLocationSegue" modalTransitionStyle="partialCurl" id="xY6-Be-IlI"/>
+                                                    <segue destination="uBl-O2-ysT" kind="modal" identifier="kitchenLocationSegue" modalTransitionStyle="flipHorizontal" id="xY6-Be-IlI"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ul-I7-uv2">
@@ -425,7 +425,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="uBl-O2-ysT" kind="modal" identifier="rubyTableLocationSegue" modalTransitionStyle="partialCurl" id="dCS-gE-Ccx"/>
+                                                    <segue destination="uBl-O2-ysT" kind="modal" identifier="rubyTableLocationSegue" modalTransitionStyle="flipHorizontal" id="dCS-gE-Ccx"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KvZ-UC-xIG">
@@ -437,7 +437,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="uBl-O2-ysT" kind="modal" identifier="iOSTableLocationSegue" modalTransitionStyle="partialCurl" id="tRW-0p-fk8"/>
+                                                    <segue destination="uBl-O2-ysT" kind="modal" identifier="iOSTableLocationSegue" modalTransitionStyle="flipHorizontal" id="tRW-0p-fk8"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Oe-8x-IW1">
@@ -449,7 +449,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="uBl-O2-ysT" kind="modal" identifier="instructorTableLocationSegue" modalTransitionStyle="partialCurl" id="WRy-Xb-aVE"/>
+                                                    <segue destination="uBl-O2-ysT" kind="modal" identifier="instructorTableLocationSegue" modalTransitionStyle="flipHorizontal" id="WRy-Xb-aVE"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d8o-um-0F2">
@@ -461,7 +461,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="uBl-O2-ysT" kind="modal" identifier="backPicnicTableLocationSegue" modalTransitionStyle="partialCurl" id="hiB-bz-qL1"/>
+                                                    <segue destination="uBl-O2-ysT" kind="modal" identifier="backPicnicTableLocationSegue" modalTransitionStyle="flipHorizontal" id="hiB-bz-qL1"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rxd-jb-SNC">
@@ -473,7 +473,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="uBl-O2-ysT" kind="modal" identifier="centerTablesLocationSegue" modalTransitionStyle="partialCurl" id="icM-zD-NIx"/>
+                                                    <segue destination="uBl-O2-ysT" kind="modal" identifier="centerTablesLocationSegue" modalTransitionStyle="flipHorizontal" id="icM-zD-NIx"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cp-Oc-rWh">
@@ -485,7 +485,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="uBl-O2-ysT" kind="modal" identifier="presentationAreaRightLocationSegue" modalTransitionStyle="partialCurl" id="hgF-dm-jw6"/>
+                                                    <segue destination="uBl-O2-ysT" kind="modal" identifier="presentationAreaRightLocationSegue" modalTransitionStyle="flipHorizontal" id="hgF-dm-jw6"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -537,7 +537,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cG7-fd-JY3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="16" y="-915"/>
+            <point key="canvasLocation" x="28" y="-935"/>
         </scene>
         <!--Select Customer Location Map View Controller - Item-->
         <scene sceneID="xLv-yx-fgf">
@@ -704,7 +704,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ymg-fQ-mlq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2384" y="-435"/>
+            <point key="canvasLocation" x="2544" y="-112"/>
         </scene>
         <!--Sessions On Map View Controller-->
         <scene sceneID="67d-uf-y4D">
@@ -718,27 +718,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0kM-Tb-Ye0">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="78" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0kM-Tb-Ye0">
                                 <rect key="frame" x="0.0" y="92" width="320" height="476"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="DTO-cV-941" detailTextLabel="Q08-WU-vcd" style="IBUITableViewCellStyleSubtitle" id="w6m-ZS-y7K">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="DTO-cV-941" detailTextLabel="Q08-WU-vcd" rowHeight="78" style="IBUITableViewCellStyleSubtitle" id="w6m-ZS-y7K">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="78"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w6m-ZS-y7K" id="bZS-zK-0db">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="77"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Test" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DTO-cV-941">
-                                                    <rect key="frame" x="15" y="3" width="33" height="22"/>
+                                                    <rect key="frame" x="15" y="20" width="33" height="22"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Test" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q08-WU-vcd">
-                                                    <rect key="frame" x="15" y="25" width="23" height="15"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Test" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="23" id="Q08-WU-vcd">
+                                                    <rect key="frame" x="15" y="42" width="23" height="15"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -746,9 +746,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="Cbc-MM-Y6L" kind="push" id="Yyq-YP-nHR"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -763,7 +760,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sSq-jx-vUc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="652" y="-799"/>
+            <point key="canvasLocation" x="652" y="-819"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="XK1-bh-3na">
@@ -829,7 +826,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dNt-V1-tnn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1460" y="-344"/>
+            <point key="canvasLocation" x="1422" y="-21"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="WmN-7r-ekg">
@@ -859,19 +856,19 @@
                         <viewControllerLayoutGuide type="bottom" id="11e-EM-uam"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="axn-9a-OGX">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="750"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="701"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3dV-rf-ap4">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="750"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="701"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u7K-Fj-2c0">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="StoreMap.png" translatesAutoresizingMaskIntoConstraints="NO" id="OFu-py-NA6">
-                                                <rect key="frame" x="0.0" y="20" width="320" height="700"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StoreMap.png" translatesAutoresizingMaskIntoConstraints="NO" id="OFu-py-NA6">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10R-fT-dMp">
@@ -993,7 +990,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dbw-nu-vH7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1933" y="441"/>
+            <point key="canvasLocation" x="2049" y="692"/>
         </scene>
     </scenes>
     <resources>
@@ -1005,7 +1002,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="icM-zD-NIx"/>
-        <segue reference="Yyq-YP-nHR"/>
+        <segue reference="8qb-H7-azu"/>
+        <segue reference="WRy-Xb-aVE"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Customer.h"
+#import "Location.h"
 
 @interface DataStore : NSObject
 
@@ -18,5 +20,8 @@
 +(DataStore *) sharedInstance;
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
++(void)addLocationWithAreaName:(NSString *)name toCustomer:(Customer *)customer inManagedObjectContext:(NSManagedObjectContext *)context;
+
+
 
 @end

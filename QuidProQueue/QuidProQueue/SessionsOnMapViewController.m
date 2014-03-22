@@ -7,9 +7,14 @@
 //
 
 #import "SessionsOnMapViewController.h"
+#import "DataStore.h"
+#import "Customer.h"
+#import "Location.h"
 
 @interface SessionsOnMapViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *customersAtLocationArray;
+@property (strong, nonatomic) DataStore *dataStore;
 
 @end
 
@@ -22,6 +27,17 @@
         // Custom initialization
     }
     return self;
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.dataStore = [DataStore sharedInstance];
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Location"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"area = %@",self.locationArea];
+    fetchRequest.predicate = predicate;
+    Location *location = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil][0];
+    self.customersAtLocationArray = [location.customers allObjects];
+    [self.tableView reloadData];
 }
 
 - (void)viewDidLoad
@@ -51,16 +67,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 1;
+    return [self.customersAtLocationArray count];
 }
 
 
@@ -68,8 +80,22 @@
  {
  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
  
- // Configure the cell...
- 
+     Customer *customerAtIndexPath = self.customersAtLocationArray[indexPath.row];
+     
+     NSDate *currentTime= [NSDate date];
+     NSTimeInterval timeElapsed = [currentTime timeIntervalSinceDate:customerAtIndexPath.arrivalTime];
+     cell.textLabel.text = customerAtIndexPath.name;
+     if ([[NSString stringWithFormat:@"%.0f",timeElapsed/60]integerValue] == 1)
+     {
+         cell.detailTextLabel.text = [NSString stringWithFormat:@"Wait time: %.0f minute\nNotes: %@", timeElapsed/60.0, customerAtIndexPath.notes];
+     }
+     
+     else
+     {
+         cell.detailTextLabel.text = [NSString stringWithFormat:@"Wait time: %.0f minutes\nNotes: %@", timeElapsed/60.0, customerAtIndexPath.notes];
+     }
+
+     
  return cell;
  }
 
