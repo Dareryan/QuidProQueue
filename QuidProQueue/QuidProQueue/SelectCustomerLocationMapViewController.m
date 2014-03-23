@@ -14,10 +14,11 @@
 
 @interface SelectCustomerLocationMapViewController ()
 
-@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+
 @property (strong, nonatomic) IBOutlet UIView *containerView;
 @property (strong, nonatomic) DataStore *dataStore;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *mapPins;
+- (IBAction)mapPinPressed:(id)sender;
 
 @end
 
@@ -59,6 +60,58 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)mapPinPressed:(id)sender
+{
+    UIButton *selectedButton = sender;
+    switch (selectedButton.tag) {
+        case 0:
+            [DataStore addLocationWithAreaName:@"Ruby instruction tables" toCustomer:self.passedCustomer inManagedObjectContext:self.dataStore.managedObjectContext];
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+            break;
+        case 1:
+            [DataStore addLocationWithAreaName:@"iOS instruction tables" toCustomer:self.passedCustomer inManagedObjectContext:self.dataStore.managedObjectContext];
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+            break;
+        case 2:
+            [DataStore addLocationWithAreaName:@"Instructor table" toCustomer:self.passedCustomer inManagedObjectContext:self.dataStore.managedObjectContext];
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+            break;
+        case 3:
+            [DataStore addLocationWithAreaName:@"Back picnic table" toCustomer:self.passedCustomer inManagedObjectContext:self.dataStore.managedObjectContext];
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+            break;
+        case 4:
+            [DataStore addLocationWithAreaName:@"Center table" toCustomer:self.passedCustomer inManagedObjectContext:self.dataStore.managedObjectContext];
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+            break;
+        case 5:
+            [DataStore addLocationWithAreaName:@"Kitchen" toCustomer:self.passedCustomer inManagedObjectContext:self.dataStore.managedObjectContext];
+           
+            [self dismissViewControllerAnimated:YES completion:nil];
+            break;
+        case 6:
+            [DataStore addLocationWithAreaName:@"Left presentation area" toCustomer:self.passedCustomer inManagedObjectContext:self.dataStore.managedObjectContext];
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+            break;
+        case 7:
+            [DataStore addLocationWithAreaName:@"Right presentation area" toCustomer:self.passedCustomer inManagedObjectContext:self.dataStore.managedObjectContext];
+           
+            [self dismissViewControllerAnimated:YES completion:nil];
+            break;
+        
+        default:
+            break;
+    }
+    
+}
+
 
 /*
  #pragma mark - Navigation

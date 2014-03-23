@@ -35,6 +35,17 @@
     return self;
 }
 
+-(void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    
+    for (UIButton *button in self.mapPinButtons) {
+        [button removeFromSuperview];
+//        [button setTranslatesAutoresizingMaskIntoConstraints:YES];
+        [self.contentView addSubview:button];
+    }
+
+}
 -(void)viewWillAppear:(BOOL)animated
 {
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];

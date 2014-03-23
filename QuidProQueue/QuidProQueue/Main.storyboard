@@ -592,6 +592,9 @@
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="mapPinPressed:" destination="A3n-JP-V96" eventType="touchUpInside" id="fmM-hi-ghu"/>
+                                                </connections>
                                             </button>
                                             <button autoresizesSubviews="NO" opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w5v-XX-Zq1">
                                                 <rect key="frame" x="50" y="50" width="30" height="30"/>
@@ -601,6 +604,9 @@
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="mapPinPressed:" destination="A3n-JP-V96" eventType="touchUpInside" id="suo-F6-g9K"/>
+                                                </connections>
                                             </button>
                                             <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHw-iY-sy2">
                                                 <rect key="frame" x="50" y="50" width="30" height="30"/>
@@ -610,6 +616,9 @@
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="mapPinPressed:" destination="A3n-JP-V96" eventType="touchUpInside" id="DZt-SB-T9l"/>
+                                                </connections>
                                             </button>
                                             <button autoresizesSubviews="NO" opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emf-Pp-D3M">
                                                 <rect key="frame" x="50" y="50" width="30" height="30"/>
@@ -619,6 +628,9 @@
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="mapPinPressed:" destination="A3n-JP-V96" eventType="touchUpInside" id="HII-Xy-Igm"/>
+                                                </connections>
                                             </button>
                                             <button autoresizesSubviews="NO" opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4h1-xN-T8K">
                                                 <rect key="frame" x="50" y="50" width="30" height="30"/>
@@ -628,6 +640,9 @@
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="mapPinPressed:" destination="A3n-JP-V96" eventType="touchUpInside" id="bhF-tP-X10"/>
+                                                </connections>
                                             </button>
                                             <button autoresizesSubviews="NO" opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ds-H7-awh">
                                                 <rect key="frame" x="50" y="50" width="30" height="30"/>
@@ -637,6 +652,9 @@
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="mapPinPressed:" destination="A3n-JP-V96" eventType="touchUpInside" id="kYG-fw-G5M"/>
+                                                </connections>
                                             </button>
                                             <button autoresizesSubviews="NO" opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDh-98-4IO">
                                                 <rect key="frame" x="50" y="50" width="30" height="30"/>
@@ -646,6 +664,9 @@
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="mapPinPressed:" destination="A3n-JP-V96" eventType="touchUpInside" id="Okl-2Z-eaM"/>
+                                                </connections>
                                             </button>
                                             <button autoresizesSubviews="NO" opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y16-Zn-uII">
                                                 <rect key="frame" x="50" y="50" width="30" height="30"/>
@@ -655,6 +676,9 @@
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="mapPinPressed:" destination="A3n-JP-V96" eventType="touchUpInside" id="WIh-I4-ln9"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.47843140360000003" green="0.77254909279999995" blue="0.8980392814" alpha="1" colorSpace="deviceRGB"/>
@@ -690,7 +714,6 @@
                     <size key="freeformSize" width="320" height="750"/>
                     <connections>
                         <outlet property="containerView" destination="iOd-h8-qgb" id="fnq-qN-AL9"/>
-                        <outlet property="scrollView" destination="OCf-xR-jkI" id="Cwo-VQ-MTU"/>
                         <outletCollection property="mapPins" destination="M4M-U1-uuP" id="L7J-P8-7b4"/>
                         <outletCollection property="mapPins" destination="w5v-XX-Zq1" id="fIL-nx-DA8"/>
                         <outletCollection property="mapPins" destination="qHw-iY-sy2" id="KeN-hN-RDF"/>
