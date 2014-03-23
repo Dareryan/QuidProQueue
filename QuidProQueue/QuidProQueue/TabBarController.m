@@ -27,7 +27,8 @@
 {
     [super viewDidLoad];
     
-    [self setSelectedIndex:1];
+    self.selectedViewController=[self.viewControllers objectAtIndex:0];
+    //[self setSelectedIndex:0];
     // Do any additional setup after loading the view.
 }
 
