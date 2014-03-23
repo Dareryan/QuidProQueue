@@ -37,8 +37,9 @@
 		45516D8618CA9D4800D3750D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45516D8418CA9D4800D3750D /* InfoPlist.strings */; };
 		45516D8818CA9D4800D3750D /* QuidProQueueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45516D8718CA9D4800D3750D /* QuidProQueueTests.m */; };
 		4598F14618DCC5DA003A8B4D /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4598F14518DCC5DA003A8B4D /* Customer.m */; };
+		459CDC6918DF1B6F0040339D /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 459CDC6818DF1B6F0040339D /* TabBarController.m */; };
+		459CDC6C18DF22610040339D /* SessionsOnMapTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 459CDC6A18DF22610040339D /* SessionsOnMapTableViewController.m */; };
 		45ADB1E318DE932F0013201A /* Session+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ADB1E218DE932F0013201A /* Session+Methods.m */; };
-		45B6F31918DE117B00C86F56 /* SessionsOnMapTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B6F31818DE117B00C86F56 /* SessionsOnMapTableViewController.m */; };
 		45BB37DA18CBC059005AB5B5 /* AddCustomerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BB37D918CBC059005AB5B5 /* AddCustomerTableViewController.m */; };
 		61E568A2910046169F38693F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5289E886E1B2443FB994DFC5 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -100,10 +101,12 @@
 		45516D8718CA9D4800D3750D /* QuidProQueueTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuidProQueueTests.m; sourceTree = "<group>"; };
 		4598F14418DCC5DA003A8B4D /* Customer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Customer.h; path = QuidProQueue/Customer.h; sourceTree = "<group>"; };
 		4598F14518DCC5DA003A8B4D /* Customer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Customer.m; path = QuidProQueue/Customer.m; sourceTree = "<group>"; };
+		459CDC6718DF1B6F0040339D /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		459CDC6818DF1B6F0040339D /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		459CDC6A18DF22610040339D /* SessionsOnMapTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionsOnMapTableViewController.m; sourceTree = "<group>"; };
+		459CDC6B18DF22610040339D /* SessionsOnMapTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionsOnMapTableViewController.h; sourceTree = "<group>"; };
 		45ADB1E118DE932F0013201A /* Session+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Session+Methods.h"; sourceTree = "<group>"; };
 		45ADB1E218DE932F0013201A /* Session+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Session+Methods.m"; sourceTree = "<group>"; };
-		45B6F31718DE117B00C86F56 /* SessionsOnMapTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionsOnMapTableViewController.h; sourceTree = "<group>"; };
-		45B6F31818DE117B00C86F56 /* SessionsOnMapTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionsOnMapTableViewController.m; sourceTree = "<group>"; };
 		45BB37D818CBC059005AB5B5 /* AddCustomerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCustomerTableViewController.h; sourceTree = "<group>"; };
 		45BB37D918CBC059005AB5B5 /* AddCustomerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCustomerTableViewController.m; sourceTree = "<group>"; };
 		5289E886E1B2443FB994DFC5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +143,8 @@
 		453E439318DCB2570038604B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				459CDC6718DF1B6F0040339D /* TabBarController.h */,
+				459CDC6818DF1B6F0040339D /* TabBarController.m */,
 				4551003118CA9E000008791B /* QueueTableViewController.h */,
 				4551003218CA9E000008791B /* QueueTableViewController.m */,
 				4551003418CB75670008791B /* StartedSessionsTableViewController.h */,
@@ -150,10 +155,10 @@
 				45BB37D918CBC059005AB5B5 /* AddCustomerTableViewController.m */,
 				454F690C18D3630300595B4E /* SettingsTableViewController.h */,
 				454F690D18D3630300595B4E /* SettingsTableViewController.m */,
-				45B6F31718DE117B00C86F56 /* SessionsOnMapTableViewController.h */,
-				45B6F31818DE117B00C86F56 /* SessionsOnMapTableViewController.m */,
 				454F691A18D3925F00595B4E /* SelectCustomerLocationMapViewController.h */,
 				454F691B18D3925F00595B4E /* SelectCustomerLocationMapViewController.m */,
+				459CDC6B18DF22610040339D /* SessionsOnMapTableViewController.h */,
+				459CDC6A18DF22610040339D /* SessionsOnMapTableViewController.m */,
 				454F691D18D39B2900595B4E /* CustomerDetailTableViewController.h */,
 				454F691E18D39B2900595B4E /* CustomerDetailTableViewController.m */,
 				454F692018D39D5A00595B4E /* CurrentCustomerLocationViewController.h */,
@@ -411,8 +416,9 @@
 				454F691C18D3925F00595B4E /* SelectCustomerLocationMapViewController.m in Sources */,
 				453E43AC18DCB42D0038604B /* Location.m in Sources */,
 				451B21E118DDDC1100E01D72 /* Customer+Methods.m in Sources */,
+				459CDC6918DF1B6F0040339D /* TabBarController.m in Sources */,
+				459CDC6C18DF22610040339D /* SessionsOnMapTableViewController.m in Sources */,
 				4551003C18CB75BB0008791B /* MapViewController.m in Sources */,
-				45B6F31918DE117B00C86F56 /* SessionsOnMapTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
