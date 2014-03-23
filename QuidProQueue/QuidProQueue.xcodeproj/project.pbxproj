@@ -10,7 +10,6 @@
 		451B21E118DDDC1100E01D72 /* Customer+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 451B21E018DDDC1100E01D72 /* Customer+Methods.m */; };
 		453E439218DCB24B0038604B /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 453E439118DCB24B0038604B /* DataStore.m */; };
 		453E43A618DCB42D0038604B /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = 453E43A518DCB42D0038604B /* Employee.m */; };
-		453E43A918DCB42D0038604B /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 453E43A818DCB42D0038604B /* Session.m */; };
 		453E43AC18DCB42D0038604B /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 453E43AB18DCB42D0038604B /* Location.m */; };
 		454F690E18D3630300595B4E /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 454F690D18D3630300595B4E /* SettingsTableViewController.m */; };
 		454F691918D38D9600595B4E /* StoreMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 454F691818D38D9600595B4E /* StoreMap.png */; };
@@ -61,8 +60,6 @@
 		453E439118DCB24B0038604B /* DataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataStore.m; path = QuidProQueue/DataStore.m; sourceTree = "<group>"; };
 		453E43A418DCB42D0038604B /* Employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Employee.h; path = QuidProQueue/Employee.h; sourceTree = "<group>"; };
 		453E43A518DCB42D0038604B /* Employee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Employee.m; path = QuidProQueue/Employee.m; sourceTree = "<group>"; };
-		453E43A718DCB42D0038604B /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Session.h; path = QuidProQueue/Session.h; sourceTree = "<group>"; };
-		453E43A818DCB42D0038604B /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Session.m; path = QuidProQueue/Session.m; sourceTree = "<group>"; };
 		453E43AA18DCB42D0038604B /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Location.h; path = QuidProQueue/Location.h; sourceTree = "<group>"; };
 		453E43AB18DCB42D0038604B /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = QuidProQueue/Location.m; sourceTree = "<group>"; };
 		454F690C18D3630300595B4E /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
@@ -103,8 +100,8 @@
 		459CDC6818DF1B6F0040339D /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		459CDC6A18DF22610040339D /* SessionsOnMapTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionsOnMapTableViewController.m; sourceTree = "<group>"; };
 		459CDC6B18DF22610040339D /* SessionsOnMapTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionsOnMapTableViewController.h; sourceTree = "<group>"; };
-		459CDC6D18DF3C4C0040339D /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
-		459CDC6E18DF3C4C0040339D /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
+		459CDC6D18DF3C4C0040339D /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Session.h; path = QuidProQueue/Session.h; sourceTree = "<group>"; };
+		459CDC6E18DF3C4C0040339D /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Session.m; path = QuidProQueue/Session.m; sourceTree = "<group>"; };
 		45ADB1E118DE932F0013201A /* Session+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Session+Methods.h"; sourceTree = "<group>"; };
 		45ADB1E218DE932F0013201A /* Session+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Session+Methods.m"; sourceTree = "<group>"; };
 		45BB37D818CBC059005AB5B5 /* AddCustomerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCustomerTableViewController.h; sourceTree = "<group>"; };
@@ -174,8 +171,8 @@
 				451B21E018DDDC1100E01D72 /* Customer+Methods.m */,
 				453E43AA18DCB42D0038604B /* Location.h */,
 				453E43AB18DCB42D0038604B /* Location.m */,
-				453E43A718DCB42D0038604B /* Session.h */,
-				453E43A818DCB42D0038604B /* Session.m */,
+				459CDC6D18DF3C4C0040339D /* Session.h */,
+				459CDC6E18DF3C4C0040339D /* Session.m */,
 				45ADB1E118DE932F0013201A /* Session+Methods.h */,
 				45ADB1E218DE932F0013201A /* Session+Methods.m */,
 				453E43A418DCB42D0038604B /* Employee.h */,
@@ -231,8 +228,6 @@
 				45516D7318CA9D4800D3750D /* Images.xcassets */,
 				454F691818D38D9600595B4E /* StoreMap.png */,
 				45516D7018CA9D4800D3750D /* QuidProQueue.xcdatamodeld */,
-				459CDC6D18DF3C4C0040339D /* Session.h */,
-				459CDC6E18DF3C4C0040339D /* Session.m */,
 				45516D6518CA9D4800D3750D /* Supporting Files */,
 			);
 			path = QuidProQueue;
@@ -402,7 +397,6 @@
 				453E43A618DCB42D0038604B /* Employee.m in Sources */,
 				45516D6F18CA9D4800D3750D /* AppDelegate.m in Sources */,
 				454F690E18D3630300595B4E /* SettingsTableViewController.m in Sources */,
-				453E43A918DCB42D0038604B /* Session.m in Sources */,
 				45ADB1E318DE932F0013201A /* Session+Methods.m in Sources */,
 				4598F14618DCC5DA003A8B4D /* Customer.m in Sources */,
 				45BB37DA18CBC059005AB5B5 /* AddCustomerTableViewController.m in Sources */,
