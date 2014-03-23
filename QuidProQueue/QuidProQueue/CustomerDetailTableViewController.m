@@ -40,13 +40,9 @@
 {
     [super viewWillAppear:animated];
     
-    
-    NSDate *currentTime= [NSDate date];
-    NSTimeInterval timeElapsed = [currentTime timeIntervalSinceDate:self.passedCustomer.arrivalTime];
-    
     self.customerNameLabel.text = [NSString stringWithFormat:@"Name: %@",self.passedCustomer.name];
     self.customerNotesLabel.text = [NSString stringWithFormat:@"Notes: %@",self.passedCustomer.notes];
-    self.customerWaitTimeLabel.text = [NSString stringWithFormat:@"Wait time: %.0f minutes\nLocation: %@", timeElapsed/60.0, self.passedCustomer.location.area];
+    self.customerWaitTimeLabel.text = [self.passedCustomer calculateWaitTimeForCustomer];
     self.customerLocationLabel.text = [NSString stringWithFormat:@"Location: %@",self.passedCustomer.location.area];
     
     if (!self.passedCustomer.session)
@@ -169,7 +165,7 @@
     
     if ([[self.dataStore.managedObjectContext executeFetchRequest:employeeFetchRequest error:nil] count] ==0)
     {
-        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Please log-in to start sessions" message:@"In order to start a session, you must log-in in the settings tab" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Please log-in to start and end sessions" message:@"In order to start or end a session, you must log-in in the settings tab" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alertView show];
     }
     else
@@ -186,7 +182,7 @@
             [employee addSessionsObject:newSession];
             
             self.passedCustomer.session = newSession;
-            self.passedCustomer.session.endTime = [NSDate date];
+            self.passedCustomer.session.startTime = [NSDate date];
             
             [self.dataStore saveContext];
             
@@ -213,4 +209,6 @@
         }
     }
 }
+
+
 @end

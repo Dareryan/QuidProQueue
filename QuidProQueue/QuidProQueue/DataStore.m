@@ -8,6 +8,7 @@
 
 #import "DataStore.h"
 #import "Customer.h"
+#import "Session.h"
 
 @implementation DataStore
 
@@ -166,6 +167,41 @@
     
     
     
+}
+
++(NSArray *)returnCustomersWithStartedSessionsInContext:(NSManagedObjectContext *)context
+{
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Customer"];
+    NSMutableArray *allCustomers = [[NSMutableArray alloc] initWithArray:[context executeFetchRequest:fetchRequest error:nil]];
+    NSMutableArray *customersWithSessions = [[NSMutableArray alloc]init];
+    
+    for (Customer *customer in allCustomers) {
+        if (customer.session)
+        {
+            [customersWithSessions addObject:customer];
+        }
+    }
+    return customersWithSessions;
+}
+
++(NSArray *)returnAnArrayOfCurrentlyPresentCustomersForAreaNamed:(NSString *)area InContext:(NSManagedObjectContext *)context
+{
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Location"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"area = %@",area];
+    fetchRequest.predicate = predicate;
+    Location *location = [context executeFetchRequest:fetchRequest error:nil][0];
+    NSArray *allCustomersForLocation = [location.customers allObjects];
+    NSMutableArray *customersPresentAtLocationArray = [[NSMutableArray alloc]init];
+    
+    for (Customer *presentCustomer in allCustomersForLocation)
+    {
+        if (!presentCustomer.session || [presentCustomer.session.isStarted boolValue] == YES)
+        {
+            [customersPresentAtLocationArray addObject:presentCustomer];
+        }
+    }
+    return customersPresentAtLocationArray;
 }
 
 @end

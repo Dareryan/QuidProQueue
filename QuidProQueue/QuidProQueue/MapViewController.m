@@ -41,21 +41,15 @@
     
     self.dataStore = [DataStore sharedInstance];
     
-    FAKFontAwesome *mapMarkerIcon = [FAKFontAwesome mapMarkerIconWithSize:30];
-    [mapMarkerIcon addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor]];
-    UIImage *mapMarkerImage = [mapMarkerIcon imageWithSize:CGSizeMake(30,30)];
-    
-    //Set Image For Buttons
-    
-    for (UIButton *mapPin in self.mapPinButtons) {
-        [mapPin setImage:mapMarkerImage forState:UIControlStateNormal];
-    }
+    [self assignPropertiesToButtons:self.mapPinButtons];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [self.scrollView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
     [self.contentView setTranslatesAutoresizingMaskIntoConstraints:NO];
 }
 
@@ -63,46 +57,7 @@
 {
     [super viewDidAppear:animated];
     
-    //Assign Frame, Color, And Location To Buttons
-    
-    for (UIButton *mapPin in self.mapPinButtons) {
-        
-        switch (mapPin.tag) {
-            case 0:
-                mapPin.frame = CGRectMake(253, 127, 30, 30);
-                [self configureMapPin:mapPin forNumberOfCustomersForAreaName:@"Ruby instruction tables"];
-                break;
-            case 1:
-                mapPin.frame = CGRectMake(81,127, 30, 30);
-                [self configureMapPin:mapPin forNumberOfCustomersForAreaName:@"iOS instruction tables"];
-                break;
-            case 2:
-                mapPin.frame = CGRectMake(71, 260, 30, 30);
-                [self configureMapPin:mapPin forNumberOfCustomersForAreaName:@"Instructor table"];
-                break;
-            case 3:
-                mapPin.frame = CGRectMake(241, 294, 30, 30);
-                [self configureMapPin:mapPin forNumberOfCustomersForAreaName:@"Back picnic table"];
-                break;
-            case 4:
-                mapPin.frame = CGRectMake(81, 391, 30, 30);
-                [self configureMapPin:mapPin forNumberOfCustomersForAreaName:@"Center table"];
-                break;
-            case 5:
-                mapPin.frame = CGRectMake(253, 391, 30, 30);
-                [self configureMapPin:mapPin forNumberOfCustomersForAreaName:@"Kitchen"];
-                break;
-            case 6:
-                mapPin.frame = CGRectMake(44, 544, 30, 30);
-                [self configureMapPin:mapPin forNumberOfCustomersForAreaName:@"Left presentation area"];
-                break;
-            case 7:
-                mapPin.frame = CGRectMake(253, 544, 30, 30);
-                [self configureMapPin:mapPin forNumberOfCustomersForAreaName:@"Right presentation area"];
-            default:
-                break;
-        }
-    }
+    [self assignPropertiesToButtons:self.mapPinButtons];
 }
 
 - (IBAction)mapPinPressed:(id)sender
@@ -148,7 +103,7 @@
 }
 
 
-#pragma mark configuration methods for tabBar and buttons
+#pragma mark configuration method for tabBarButton
 
 -(UITabBarItem *)tabBarItem
 {
@@ -159,6 +114,10 @@
     
     return tabBarItem;
 }
+
+#pragma mark custom methods
+
+//Determine color of buttons based on number of customers in a location
 
 -(void)configureMapPin:(UIButton *)mapPin forNumberOfCustomersForAreaName:(NSString *)areaName
 {
@@ -197,7 +156,59 @@
     }
 }
 
+//Assign frame, location, icon, and color to all buttons.
 
+-(void)assignPropertiesToButtons:(NSArray *)buttons
+{
+    FAKFontAwesome *mapMarkerIcon = [FAKFontAwesome mapMarkerIconWithSize:30];
+    [mapMarkerIcon addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor]];
+    UIImage *mapMarkerImage = [mapMarkerIcon imageWithSize:CGSizeMake(30,30)];
+    
+    for (UIButton *mapPin in buttons)
+    {
+        [mapPin setImage:mapMarkerImage forState:UIControlStateNormal];
+    }
+    
+    for (UIButton *mapPin in buttons) {
+        
+        switch (mapPin.tag) {
+            case 0:
+                mapPin.frame = CGRectMake(253, 127, 30, 30);
+                [self configureMapPin:mapPin forNumberOfCustomersForAreaName:@"Ruby instruction tables"];
+                break;
+            case 1:
+                mapPin.frame = CGRectMake(81,127, 30, 30);
+                [self configureMapPin:mapPin forNumberOfCustomersForAreaName:@"iOS instruction tables"];
+                break;
+            case 2:
+                mapPin.frame = CGRectMake(71, 260, 30, 30);
+                [self configureMapPin:mapPin forNumberOfCustomersForAreaName:@"Instructor table"];
+                break;
+            case 3:
+                mapPin.frame = CGRectMake(241, 294, 30, 30);
+                [self configureMapPin:mapPin forNumberOfCustomersForAreaName:@"Back picnic table"];
+                break;
+            case 4:
+                mapPin.frame = CGRectMake(81, 391, 30, 30);
+                [self configureMapPin:mapPin forNumberOfCustomersForAreaName:@"Center table"];
+                break;
+            case 5:
+                mapPin.frame = CGRectMake(253, 391, 30, 30);
+                [self configureMapPin:mapPin forNumberOfCustomersForAreaName:@"Kitchen"];
+                break;
+            case 6:
+                mapPin.frame = CGRectMake(44, 544, 30, 30);
+                [self configureMapPin:mapPin forNumberOfCustomersForAreaName:@"Left presentation area"];
+                break;
+            case 7:
+                mapPin.frame = CGRectMake(253, 544, 30, 30);
+                [self configureMapPin:mapPin forNumberOfCustomersForAreaName:@"Right presentation area"];
+                break;
+            default:
+                break;
+        }
+    }
+}
 
 
 

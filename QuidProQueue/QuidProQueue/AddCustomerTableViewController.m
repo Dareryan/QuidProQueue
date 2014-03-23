@@ -49,7 +49,7 @@
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Customer" inManagedObjectContext:self.dataStore.managedObjectContext];
     self.createdCustomer = [[Customer alloc]initWithEntity:entityDescription insertIntoManagedObjectContext:self.dataStore.managedObjectContext];
     
-   
+    
     //    self.customerLocationCell.backgroundColor = [UIColor colorWithRed:0.875 green:0.173 blue:0.290 alpha:1];
     //    self.customerNotesCell.backgroundColor = [UIColor colorWithRed:0.875 green:0.173 blue:0.290 alpha:1];
     //    self.customerNameCell.backgroundColor = [UIColor colorWithRed:0.875 green:0.173 blue:0.290 alpha:1];
@@ -168,37 +168,34 @@
  
  */
 
-- (IBAction)doneButtonWasTapped:(id)sender {
-    
-  
-    
+- (IBAction)doneButtonWasTapped:(id)sender
+{
     self.createdCustomer.name = self.customerNameTextField.text;
     self.createdCustomer.notes = self.customerNotesTextField.text;
     
-    
-    if ([self.createdCustomer.name isEqualToString:@""] && !self.createdCustomer.location) {
-        
+    if ([self.createdCustomer.name isEqualToString:@""] && !self.createdCustomer.location)
+    {
         [UIView animateWithDuration:1 animations:^{
             self.customerNameCell.backgroundColor = [UIColor colorWithRed:0.875 green:0.173 blue:0.290 alpha:1]; }];
         [UIView animateWithDuration:1 animations:^{
             self.customerLocationCell.backgroundColor = [UIColor colorWithRed:0.875 green:0.173 blue:0.290 alpha:1]; }];
-        
-    }else if (self.createdCustomer.location == nil && ![self.createdCustomer.name isEqualToString:@""]){
-        
+    }
+    else if (self.createdCustomer.location == nil && ![self.createdCustomer.name isEqualToString:@""])
+    {
         [UIView animateWithDuration:1 animations:^{
             self.customerLocationCell.backgroundColor = [UIColor colorWithRed:0.875 green:0.173 blue:0.290 alpha:1]; }];
         [UIView animateWithDuration:1 animations:^{
             self.customerNameCell.backgroundColor = [UIColor whiteColor]; }];
-        
-    }else if ([self.createdCustomer.name isEqualToString:@""] && self.createdCustomer.location){
-        
+    }
+    else if ([self.createdCustomer.name isEqualToString:@""] && self.createdCustomer.location)
+    {
         [UIView animateWithDuration:1 animations:^{
             self.customerLocationCell.backgroundColor = [UIColor whiteColor]; }];
         [UIView animateWithDuration:1 animations:^{
             self.customerNameCell.backgroundColor = [UIColor colorWithRed:0.875 green:0.173 blue:0.290 alpha:1]; }];
-        
-    }else{
-        
+    }
+    else
+    {
         self.createdCustomer.arrivalTime = [NSDate date];
         [self.dataStore saveContext];
         [self dismissViewControllerAnimated:YES completion:nil];
@@ -215,8 +212,8 @@
     return YES;
 }
 
-- (IBAction)cancelButtonWasTapped:(id)sender {
-  
+- (IBAction)cancelButtonWasTapped:(id)sender
+{
     [self dismissViewControllerAnimated:YES completion:nil];
     [self.dataStore.managedObjectContext deleteObject:self.createdCustomer];
 }

@@ -11,5 +11,7 @@
 @interface Customer (Methods)
 
 
+-(NSString *)calculateWaitTimeForCustomer;
+
 
 @end

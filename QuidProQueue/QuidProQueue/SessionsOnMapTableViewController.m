@@ -8,14 +8,15 @@
 
 #import "SessionsOnMapTableViewController.h"
 #import "DataStore.h"
-#import "Customer.h"
+#import "Customer+Methods.h"
 #import "Location.h"
 #import "CustomerDetailTableViewController.h"
-#import "Session.h"
+#import "Session+Methods.h"
+#import "Employee.h"
 
 @interface SessionsOnMapTableViewController ()
 
-@property (strong, nonatomic) NSMutableArray *customersPresentAtLocationArray;
+@property (strong, nonatomic) NSArray *customersPresentAtLocationArray;
 @property (strong, nonatomic) DataStore *dataStore;
 
 - (IBAction)doneButtonPressed:(id)sender;
@@ -33,36 +34,26 @@
     return self;
 }
 
--(void)viewWillAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
+    
+    self.tableView.dataSource = self;
+    
+    self.tableView.delegate = self;
+    
     self.dataStore = [DataStore sharedInstance];
-    self.customersPresentAtLocationArray = [[NSMutableArray alloc]init];
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Location"];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"area = %@",self.locationArea];
-    fetchRequest.predicate = predicate;
-    Location *location = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil][0];
-    NSArray *allCustomersForLocation = [location.customers allObjects];
     
-    for (Customer *presentCustomer in allCustomersForLocation)
-    {
-        if (!presentCustomer.session || [presentCustomer.session.isStarted boolValue] == YES)
-        {
-           [self.customersPresentAtLocationArray addObject:presentCustomer];
-        }
+    self.customersPresentAtLocationArray = [DataStore returnAnArrayOfCurrentlyPresentCustomersForAreaNamed:self.locationArea InContext:self.dataStore.managedObjectContext];
     
-}
-
-
-
     [self.tableView reloadData];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
     
+     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -95,22 +86,22 @@
     
     Customer *customerAtIndexPath = self.customersPresentAtLocationArray[indexPath.row];
     
-    NSDate *currentTime= [NSDate date];
-    NSTimeInterval timeElapsed = [currentTime timeIntervalSinceDate:customerAtIndexPath.arrivalTime];
-    cell.textLabel.text = customerAtIndexPath.name;
-    
-    //Correct grammar for a single minute vs multiple minute wait time
-    
-    if ([[NSString stringWithFormat:@"%.0f",timeElapsed/60]integerValue] == 1)
+    if (!customerAtIndexPath.session.isStarted)
     {
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"Wait time: %.0f minute\nNotes: %@", timeElapsed/60.0, customerAtIndexPath.notes];
+        cell.textLabel.text = customerAtIndexPath.name;
+        
+        cell.detailTextLabel.text = [customerAtIndexPath calculateWaitTimeForCustomer];
+        
+        return cell;
     }
     else
     {
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"Wait time: %.0f minutes\nNotes: %@", timeElapsed/60.0, customerAtIndexPath.notes];
+        cell.textLabel.text = customerAtIndexPath.name;
+        
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"Session started by %@ at %@", customerAtIndexPath.session.employee.name, [customerAtIndexPath.session returnFormattedStartTime]];
+        
+        return cell;
     }
-
-    return cell;
 }
 
 - (IBAction)doneButtonPressed:(id)sender
@@ -125,53 +116,53 @@
     customerDatilTVC.passedCustomer = passingCustomer;
 }
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 
 @end

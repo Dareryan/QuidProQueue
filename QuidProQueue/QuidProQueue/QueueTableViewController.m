@@ -9,7 +9,7 @@
 #import "QueueTableViewController.h"
 #import <FontAwesomeKit.h>
 #import "DataStore.h"
-#import "Customer.h"
+#import "Customer+Methods.h"
 #import "Location.h"
 #import "CustomerDetailTableViewController.h"
 
@@ -67,15 +67,11 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    
-    // Return the number of sections.
     return [[self.dataStore.fetchedResultsController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
-    // Return the number of rows in the section.
     return [self.dataStore.fetchedResultsController.sections[section] numberOfObjects];
 }
 
@@ -86,25 +82,15 @@
     
     [self configureCell:cell atIndexPath:indexPath];
     
-    
     return cell;
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     Customer *customer = [self.dataStore.fetchedResultsController objectAtIndexPath:indexPath];
-    NSDate *currentTime= [NSDate date];
-    NSTimeInterval timeElapsed = [currentTime timeIntervalSinceDate:customer.arrivalTime];
+    
     cell.textLabel.text = customer.name;
-    if ([[NSString stringWithFormat:@"%.0f",timeElapsed/60]integerValue] == 1)
-    {
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"Wait time: %.0f minute\nLocation: %@", timeElapsed/60.0, customer.location.area];
-    }else
-    {
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"Wait time: %.0f minutes\nLocation: %@", timeElapsed/60.0, customer.location.area];
-    }
-    
-    
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@\nLocation: %@", [customer calculateWaitTimeForCustomer], customer.location.area];
 }
 
 
@@ -167,15 +153,11 @@
         Customer *selectedCustomer = [self.dataStore.fetchedResultsController objectAtIndexPath:selectedCell];
         
         customerDetailVC.passedCustomer = selectedCustomer;
-        
     }
-    
-    
 }
 
-
-
-- (IBAction)refreshButtonPressed:(id)sender {
+- (IBAction)refreshButtonPressed:(id)sender
+{
     [self.tableView reloadData];
 }
 

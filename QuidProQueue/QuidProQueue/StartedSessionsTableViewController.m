@@ -11,12 +11,16 @@
 #import "DataStore.h"
 #import "Customer.h"
 #import "Location.h"
-#import "Session.h"
+#import "Session+Methods.h"
+#import "CustomerDetailTableViewController.h"
+#import "Employee.h"
 
 @interface StartedSessionsTableViewController ()
 
 @property (strong, nonatomic) DataStore *dataStore;
 @property (strong, nonatomic) NSArray *customersWithSessions;
+
+- (IBAction)reploadButtonPressed:(id)sender;
 
 @end
 
@@ -36,21 +40,8 @@
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
     
     self.dataStore = [DataStore sharedInstance];
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Customer"];
-   
-    NSMutableArray *allCustomers = [[NSMutableArray alloc] initWithArray:[self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil]];
-    
-    NSMutableArray *customersWithoutSessions = [[NSMutableArray alloc]init];
-    
-    for (Customer *customer in allCustomers) {
-        if (!customer.session)
-        {
-            [customersWithoutSessions addObject:customer];
-        }
-    }
-    
-    [allCustomers removeObjectsInArray:customersWithoutSessions];
-    self.customersWithSessions = allCustomers;
+  
+    self.customersWithSessions = [self sortOpenAndEndedSessionsAndOrganizeByStartTime];
     
     [self.tableView reloadData];
 }
@@ -70,20 +61,6 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
--(UITabBarItem *)tabBarItem
-{
-    
-    
-    FAKFontAwesome *tabIcon = [FAKFontAwesome tachometerIconWithSize:30];
-    [tabIcon addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor]];
-    UIImage *tabIconImage = [tabIcon imageWithSize:CGSizeMake(30,30)];
-    
-    
-    UITabBarItem *tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Sessions" image:tabIconImage selectedImage:tabIconImage];
-    return tabBarItem;
-    
-}
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -95,15 +72,11 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
-    // Return the number of rows in the section.
     return [self.customersWithSessions count];
 }
 
@@ -111,12 +84,64 @@
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
     Customer *customerAtIndexPath = self.customersWithSessions[indexPath.row];
+    
     cell.textLabel.text = customerAtIndexPath.name;
-    return cell;
+    
+    if (customerAtIndexPath.session.endTime)
+    {
+        cell.textLabel.textColor = [UIColor grayColor];
+        cell.detailTextLabel.textColor = [UIColor grayColor];
+        
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"Session started by %@ at %@\nSession ended by %@ at %@", customerAtIndexPath.session.employee.name, [customerAtIndexPath.session returnFormattedStartTime], customerAtIndexPath.session.employee.name, [customerAtIndexPath.session returnFormattedEndTime]];
+
+        return cell;
+    }
+    else
+    {
+        cell.textLabel.textColor = [UIColor blackColor];
+        cell.detailTextLabel.textColor = [UIColor blackColor];
+       
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"Session started by %@ at %@",customerAtIndexPath.session.employee.name, [customerAtIndexPath.session returnFormattedStartTime]];
+        return cell;
+    }
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    CustomerDetailTableViewController *customerDetailVC = segue.destinationViewController;
+    
+    Customer *passingCustomer = self.customersWithSessions[[self.tableView indexPathForSelectedRow].row];
+    
+    customerDetailVC.passedCustomer = passingCustomer;
+}
 
+-(UITabBarItem *)tabBarItem
+{
+    FAKFontAwesome *tabIcon = [FAKFontAwesome tachometerIconWithSize:30];
+    [tabIcon addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor]];
+    UIImage *tabIconImage = [tabIcon imageWithSize:CGSizeMake(30,30)];
+    
+    
+    UITabBarItem *tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Sessions" image:tabIconImage selectedImage:tabIconImage];
+    
+    return tabBarItem;
+}
+
+#pragma mark custom methods
+
+-(NSArray *)sortOpenAndEndedSessionsAndOrganizeByStartTime
+{
+    NSArray *customersWithOpenSessions = [DataStore returnCustomersWithStartedSessionsInContext:self.dataStore.managedObjectContext];
+    
+    NSSortDescriptor *endedSessionsSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"session.isStarted" ascending:NO];
+    NSSortDescriptor *startTimeSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"session.startTime" ascending:NO];
+   
+    NSArray *sortDescriptorsArray = @[endedSessionsSortDescriptor, startTimeSortDescriptor];
+    
+    return [customersWithOpenSessions sortedArrayUsingDescriptors:sortDescriptorsArray];
+}
 
 /*
  // Override to support conditional editing of the table view.
@@ -169,4 +194,7 @@
  
  */
 
+- (IBAction)reploadButtonPressed:(id)sender {
+    [self.tableView reloadData];
+}
 @end

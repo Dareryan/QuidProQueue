@@ -13,7 +13,6 @@
 		453E43A918DCB42D0038604B /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 453E43A818DCB42D0038604B /* Session.m */; };
 		453E43AC18DCB42D0038604B /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 453E43AB18DCB42D0038604B /* Location.m */; };
 		454F690E18D3630300595B4E /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 454F690D18D3630300595B4E /* SettingsTableViewController.m */; };
-		454F691418D3811A00595B4E /* SessionsOnMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 454F691318D3811A00595B4E /* SessionsOnMapViewController.m */; };
 		454F691918D38D9600595B4E /* StoreMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 454F691818D38D9600595B4E /* StoreMap.png */; };
 		454F691C18D3925F00595B4E /* SelectCustomerLocationMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 454F691B18D3925F00595B4E /* SelectCustomerLocationMapViewController.m */; };
 		454F691F18D39B2900595B4E /* CustomerDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 454F691E18D39B2900595B4E /* CustomerDetailTableViewController.m */; };
@@ -38,6 +37,7 @@
 		45516D8618CA9D4800D3750D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45516D8418CA9D4800D3750D /* InfoPlist.strings */; };
 		45516D8818CA9D4800D3750D /* QuidProQueueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45516D8718CA9D4800D3750D /* QuidProQueueTests.m */; };
 		4598F14618DCC5DA003A8B4D /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4598F14518DCC5DA003A8B4D /* Customer.m */; };
+		45ADB1E318DE932F0013201A /* Session+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ADB1E218DE932F0013201A /* Session+Methods.m */; };
 		45B6F31918DE117B00C86F56 /* SessionsOnMapTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B6F31818DE117B00C86F56 /* SessionsOnMapTableViewController.m */; };
 		45BB37DA18CBC059005AB5B5 /* AddCustomerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BB37D918CBC059005AB5B5 /* AddCustomerTableViewController.m */; };
 		61E568A2910046169F38693F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5289E886E1B2443FB994DFC5 /* libPods.a */; };
@@ -66,8 +66,6 @@
 		453E43AB18DCB42D0038604B /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = QuidProQueue/Location.m; sourceTree = "<group>"; };
 		454F690C18D3630300595B4E /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		454F690D18D3630300595B4E /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
-		454F691218D3811A00595B4E /* SessionsOnMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionsOnMapViewController.h; sourceTree = "<group>"; };
-		454F691318D3811A00595B4E /* SessionsOnMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionsOnMapViewController.m; sourceTree = "<group>"; };
 		454F691818D38D9600595B4E /* StoreMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StoreMap.png; sourceTree = "<group>"; };
 		454F691A18D3925F00595B4E /* SelectCustomerLocationMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCustomerLocationMapViewController.h; sourceTree = "<group>"; };
 		454F691B18D3925F00595B4E /* SelectCustomerLocationMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCustomerLocationMapViewController.m; sourceTree = "<group>"; };
@@ -102,6 +100,8 @@
 		45516D8718CA9D4800D3750D /* QuidProQueueTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuidProQueueTests.m; sourceTree = "<group>"; };
 		4598F14418DCC5DA003A8B4D /* Customer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Customer.h; path = QuidProQueue/Customer.h; sourceTree = "<group>"; };
 		4598F14518DCC5DA003A8B4D /* Customer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Customer.m; path = QuidProQueue/Customer.m; sourceTree = "<group>"; };
+		45ADB1E118DE932F0013201A /* Session+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Session+Methods.h"; sourceTree = "<group>"; };
+		45ADB1E218DE932F0013201A /* Session+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Session+Methods.m"; sourceTree = "<group>"; };
 		45B6F31718DE117B00C86F56 /* SessionsOnMapTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionsOnMapTableViewController.h; sourceTree = "<group>"; };
 		45B6F31818DE117B00C86F56 /* SessionsOnMapTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionsOnMapTableViewController.m; sourceTree = "<group>"; };
 		45BB37D818CBC059005AB5B5 /* AddCustomerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCustomerTableViewController.h; sourceTree = "<group>"; };
@@ -150,8 +150,6 @@
 				45BB37D918CBC059005AB5B5 /* AddCustomerTableViewController.m */,
 				454F690C18D3630300595B4E /* SettingsTableViewController.h */,
 				454F690D18D3630300595B4E /* SettingsTableViewController.m */,
-				454F691218D3811A00595B4E /* SessionsOnMapViewController.h */,
-				454F691318D3811A00595B4E /* SessionsOnMapViewController.m */,
 				45B6F31718DE117B00C86F56 /* SessionsOnMapTableViewController.h */,
 				45B6F31818DE117B00C86F56 /* SessionsOnMapTableViewController.m */,
 				454F691A18D3925F00595B4E /* SelectCustomerLocationMapViewController.h */,
@@ -175,6 +173,8 @@
 				453E43AB18DCB42D0038604B /* Location.m */,
 				453E43A718DCB42D0038604B /* Session.h */,
 				453E43A818DCB42D0038604B /* Session.m */,
+				45ADB1E118DE932F0013201A /* Session+Methods.h */,
+				45ADB1E218DE932F0013201A /* Session+Methods.m */,
 				453E43A418DCB42D0038604B /* Employee.h */,
 				453E43A518DCB42D0038604B /* Employee.m */,
 				453E439018DCB24B0038604B /* DataStore.h */,
@@ -398,6 +398,7 @@
 				45516D6F18CA9D4800D3750D /* AppDelegate.m in Sources */,
 				454F690E18D3630300595B4E /* SettingsTableViewController.m in Sources */,
 				453E43A918DCB42D0038604B /* Session.m in Sources */,
+				45ADB1E318DE932F0013201A /* Session+Methods.m in Sources */,
 				4598F14618DCC5DA003A8B4D /* Customer.m in Sources */,
 				45BB37DA18CBC059005AB5B5 /* AddCustomerTableViewController.m in Sources */,
 				454F691F18D39B2900595B4E /* CustomerDetailTableViewController.m in Sources */,
@@ -406,7 +407,6 @@
 				45516D7218CA9D4800D3750D /* QuidProQueue.xcdatamodeld in Sources */,
 				453E439218DCB24B0038604B /* DataStore.m in Sources */,
 				454F692218D39D5A00595B4E /* CurrentCustomerLocationViewController.m in Sources */,
-				454F691418D3811A00595B4E /* SessionsOnMapViewController.m in Sources */,
 				4551003618CB75670008791B /* StartedSessionsTableViewController.m in Sources */,
 				454F691C18D3925F00595B4E /* SelectCustomerLocationMapViewController.m in Sources */,
 				453E43AC18DCB42D0038604B /* Location.m in Sources */,

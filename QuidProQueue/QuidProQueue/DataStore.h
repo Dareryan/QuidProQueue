@@ -18,10 +18,16 @@
 @property (readonly, strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 +(DataStore *) sharedInstance;
+
 - (void)saveContext;
+
 - (NSURL *)applicationDocumentsDirectory;
+
 +(void)addLocationWithAreaName:(NSString *)name toCustomer:(Customer *)customer inManagedObjectContext:(NSManagedObjectContext *)context;
 
++(NSArray *)returnCustomersWithStartedSessionsInContext:(NSManagedObjectContext *)context;
+
++(NSArray *)returnAnArrayOfCurrentlyPresentCustomersForAreaNamed:(NSString *)area InContext:(NSManagedObjectContext *)context;
 
 
 @end

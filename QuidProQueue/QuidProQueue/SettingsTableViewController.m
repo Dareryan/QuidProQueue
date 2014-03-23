@@ -39,28 +39,15 @@
     [super viewWillAppear:animated];
     
     self.dataStore = [DataStore sharedInstance];
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Employee"];
     
-    
-    if ([[self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil] count] == 0) {
-        [self.logInButton setTitle:@"Log in" forState:UIControlStateNormal];
-        self.logInButton.titleLabel.textColor = [UIColor blueColor];
-        self.userNameTextField.text = @"";
-    }
-    else
-    {
-        Employee *loggedInEmployee = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil][0];
-        [self.logInButton setTitle:@"Log out" forState:UIControlStateNormal];
-        [self.logInButton setTitleColor:[UIColor colorWithRed:0.875 green:0.173 blue:0.290 alpha:1] forState:UIControlStateNormal];
-        self.userNameTextField.text = loggedInEmployee.name;
-    }
+    [self configureLogInButtonOnLoad];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-   
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -68,20 +55,6 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
--(UITabBarItem *)tabBarItem
-{
-        
-    FAKIonIcons *tabIcon = [FAKIonIcons gearBIconWithSize:30];
-    [tabIcon addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor]];
-    UIImage *tabIconImage = [tabIcon imageWithSize:CGSizeMake(30,30)];
-    
-    
-    UITabBarItem *tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Settings" image:tabIconImage selectedImage:tabIconImage];
-    
-    return tabBarItem;
- }
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -103,90 +76,72 @@
 
 - (IBAction)logInButtonPressed:(id)sender
 {
-    self.dataStore = [DataStore sharedInstance];
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Employee"];
     
+    //check to see if there is no user logged in
     if ([[self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil] count] == 0)
     {
-        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Employee" inManagedObjectContext:self.dataStore.managedObjectContext];
-        self.employee = [[Employee alloc]initWithEntity:entityDescription insertIntoManagedObjectContext:self.dataStore.managedObjectContext];
-        self.employee.name = self.userNameTextField.text;
-        [self.logInButton setTitle:@"Log out" forState:UIControlStateNormal];
-        [self.logInButton setTitleColor:[UIColor colorWithRed:0.875 green:0.173 blue:0.290 alpha:1] forState:UIControlStateNormal];
-        [self.dataStore saveContext];
+        [self login];
         [self.userNameTextField resignFirstResponder];
     }
+    //check to see if a user is already logged in
     else if ([[self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil] count] != 0)
     {
-        self.employee = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil][0];
-        self.userNameTextField.text = @"";
-        [self.logInButton setTitle:@"Log in" forState:UIControlStateNormal];
-        [self.logInButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-        [self.dataStore.managedObjectContext deleteObject:self.employee];
-        [self.dataStore saveContext];
+        [self logout];
         [self.userNameTextField resignFirstResponder];
     }
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+-(UITabBarItem *)tabBarItem
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
+    FAKIonIcons *tabIcon = [FAKIonIcons gearBIconWithSize:30];
+    [tabIcon addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor]];
+    UIImage *tabIconImage = [tabIcon imageWithSize:CGSizeMake(30,30)];
     
-    return cell;
+    
+    UITabBarItem *tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Settings" image:tabIconImage selectedImage:tabIconImage];
+    
+    return tabBarItem;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)configureLogInButtonOnLoad
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Employee"];
+    
+    if ([[self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil] count] == 0) {
+        [self.logInButton setTitle:@"Log in" forState:UIControlStateNormal];
+        self.logInButton.titleLabel.textColor = [[[[UIApplication sharedApplication] delegate] window] tintColor];
+        self.userNameTextField.text = @"";
+    }
+    else
+    {
+        Employee *loggedInEmployee = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil][0];
+        [self.logInButton setTitle:@"Log out" forState:UIControlStateNormal];
+        [self.logInButton setTitleColor:[UIColor colorWithRed:0.875 green:0.173 blue:0.290 alpha:1] forState:UIControlStateNormal];
+        self.userNameTextField.text = loggedInEmployee.name;
+    }
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)login
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Employee" inManagedObjectContext:self.dataStore.managedObjectContext];
+    self.employee = [[Employee alloc]initWithEntity:entityDescription insertIntoManagedObjectContext:self.dataStore.managedObjectContext];
+    self.employee.name = self.userNameTextField.text;
+    [self.logInButton setTitle:@"Log out" forState:UIControlStateNormal];
+    [self.logInButton setTitleColor:[UIColor colorWithRed:0.875 green:0.173 blue:0.290 alpha:1] forState:UIControlStateNormal];
+    [self.dataStore saveContext];
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+-(void)logout
 {
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Employee"];
+    Employee *employee = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil][0];
+    self.userNameTextField.text = @"";
+    [self.logInButton setTitle:@"Log in" forState:UIControlStateNormal];
+    [self.logInButton setTitleColor:[[[[UIApplication sharedApplication] delegate] window] tintColor] forState:UIControlStateNormal];
+    [self.dataStore.managedObjectContext deleteObject:employee];
+    [self.dataStore saveContext];
 }
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 
 @end
