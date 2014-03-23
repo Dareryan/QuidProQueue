@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "Employee.h"
+
 
 
 
@@ -15,7 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
+    self.dataStore = [DataStore sharedInstance];
    
    
     return YES;
@@ -29,8 +31,19 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+   
+    //Log out employee
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Employee"];
+    
+    if ([[self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil] count] != 0)
+    {
+        Employee *employee = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil][0];
+        [self.dataStore.managedObjectContext deleteObject:employee];
+        [self.dataStore saveContext];
+    }
+
+   
+
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

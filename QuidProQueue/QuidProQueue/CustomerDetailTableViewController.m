@@ -8,7 +8,7 @@
 
 #import "CustomerDetailTableViewController.h"
 #import "Location.h"
-#import "CurrentCustomerLocationViewController.h"
+
 #import "Session.h"
 #import "DataStore.h"
 #import "Employee.h"
@@ -147,16 +147,7 @@
  */
 
 
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    CurrentCustomerLocationViewController *currentCustomerLocationVC = [segue destinationViewController];
-    
-    currentCustomerLocationVC.passedCustomer = self.passedCustomer;
-    
-}
+#pragma mark - custom methods
 
 
 - (IBAction)startSessionButtonPressed:(id)sender
@@ -183,6 +174,7 @@
             
             self.passedCustomer.session = newSession;
             self.passedCustomer.session.startTime = [NSDate date];
+            self.passedCustomer.session.employeeNameForSession = employee.name;
             
             [self.dataStore saveContext];
             

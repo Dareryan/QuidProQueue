@@ -214,7 +214,9 @@
 
 - (IBAction)cancelButtonWasTapped:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
     [self.dataStore.managedObjectContext deleteObject:self.createdCustomer];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

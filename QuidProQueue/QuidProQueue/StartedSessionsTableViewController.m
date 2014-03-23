@@ -20,8 +20,6 @@
 @property (strong, nonatomic) DataStore *dataStore;
 @property (strong, nonatomic) NSArray *customersWithSessions;
 
-- (IBAction)reploadButtonPressed:(id)sender;
-
 @end
 
 @implementation StartedSessionsTableViewController
@@ -94,7 +92,7 @@
         cell.textLabel.textColor = [UIColor grayColor];
         cell.detailTextLabel.textColor = [UIColor grayColor];
         
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"Session started by %@ at %@\nSession ended by %@ at %@", customerAtIndexPath.session.employee.name, [customerAtIndexPath.session returnFormattedStartTime], customerAtIndexPath.session.employee.name, [customerAtIndexPath.session returnFormattedEndTime]];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"Session started by %@ at %@\nSession ended by %@ at %@", customerAtIndexPath.session.employeeNameForSession, [customerAtIndexPath.session returnFormattedStartTime], customerAtIndexPath.session.employeeNameForSession, [customerAtIndexPath.session returnFormattedEndTime]];
 
         return cell;
     }
@@ -103,7 +101,7 @@
         cell.textLabel.textColor = [UIColor blackColor];
         cell.detailTextLabel.textColor = [UIColor blackColor];
        
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"Session started by %@ at %@",customerAtIndexPath.session.employee.name, [customerAtIndexPath.session returnFormattedStartTime]];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"Session started by %@ at %@",customerAtIndexPath.session.employeeNameForSession, [customerAtIndexPath.session returnFormattedStartTime]];
         return cell;
     }
 }
@@ -194,7 +192,5 @@
  
  */
 
-- (IBAction)reploadButtonPressed:(id)sender {
-    [self.tableView reloadData];
-}
+
 @end

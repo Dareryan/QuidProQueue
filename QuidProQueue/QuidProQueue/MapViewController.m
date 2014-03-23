@@ -155,12 +155,12 @@
         mapPin.tintColor = [UIColor grayColor];
         mapPin.enabled = NO;
     }
-    else if (customerCount > 0 &&  customerCount < 5)
+    else if (customerCount > 0 && customerCount < 5)
     {
         mapPin.tintColor = [UIColor blackColor];
         mapPin.enabled = YES;
     }
-    else if (customerCount > 5)
+    else if (customerCount >= 5)
     {
         mapPin.tintColor = [UIColor colorWithRed:0.875 green:0.173 blue:0.290 alpha:1];
         mapPin.enabled = YES;

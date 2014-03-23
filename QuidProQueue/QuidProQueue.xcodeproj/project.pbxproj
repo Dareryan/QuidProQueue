@@ -16,7 +16,6 @@
 		454F691918D38D9600595B4E /* StoreMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 454F691818D38D9600595B4E /* StoreMap.png */; };
 		454F691C18D3925F00595B4E /* SelectCustomerLocationMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 454F691B18D3925F00595B4E /* SelectCustomerLocationMapViewController.m */; };
 		454F691F18D39B2900595B4E /* CustomerDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 454F691E18D39B2900595B4E /* CustomerDetailTableViewController.m */; };
-		454F692218D39D5A00595B4E /* CurrentCustomerLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 454F692118D39D5A00595B4E /* CurrentCustomerLocationViewController.m */; };
 		4551003018CA9DEE0008791B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4551002F18CA9DEE0008791B /* Main.storyboard */; };
 		4551003318CA9E000008791B /* QueueTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4551003218CA9E000008791B /* QueueTableViewController.m */; };
 		4551003618CB75670008791B /* StartedSessionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4551003518CB75670008791B /* StartedSessionsTableViewController.m */; };
@@ -39,6 +38,7 @@
 		4598F14618DCC5DA003A8B4D /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4598F14518DCC5DA003A8B4D /* Customer.m */; };
 		459CDC6918DF1B6F0040339D /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 459CDC6818DF1B6F0040339D /* TabBarController.m */; };
 		459CDC6C18DF22610040339D /* SessionsOnMapTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 459CDC6A18DF22610040339D /* SessionsOnMapTableViewController.m */; };
+		459CDC6F18DF3C4C0040339D /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 459CDC6E18DF3C4C0040339D /* Session.m */; };
 		45ADB1E318DE932F0013201A /* Session+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ADB1E218DE932F0013201A /* Session+Methods.m */; };
 		45BB37DA18CBC059005AB5B5 /* AddCustomerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BB37D918CBC059005AB5B5 /* AddCustomerTableViewController.m */; };
 		61E568A2910046169F38693F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5289E886E1B2443FB994DFC5 /* libPods.a */; };
@@ -72,8 +72,6 @@
 		454F691B18D3925F00595B4E /* SelectCustomerLocationMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCustomerLocationMapViewController.m; sourceTree = "<group>"; };
 		454F691D18D39B2900595B4E /* CustomerDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerDetailTableViewController.h; sourceTree = "<group>"; };
 		454F691E18D39B2900595B4E /* CustomerDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerDetailTableViewController.m; sourceTree = "<group>"; };
-		454F692018D39D5A00595B4E /* CurrentCustomerLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentCustomerLocationViewController.h; sourceTree = "<group>"; };
-		454F692118D39D5A00595B4E /* CurrentCustomerLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentCustomerLocationViewController.m; sourceTree = "<group>"; };
 		4551002F18CA9DEE0008791B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4551003118CA9E000008791B /* QueueTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueueTableViewController.h; sourceTree = "<group>"; };
 		4551003218CA9E000008791B /* QueueTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueueTableViewController.m; sourceTree = "<group>"; };
@@ -105,6 +103,8 @@
 		459CDC6818DF1B6F0040339D /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		459CDC6A18DF22610040339D /* SessionsOnMapTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionsOnMapTableViewController.m; sourceTree = "<group>"; };
 		459CDC6B18DF22610040339D /* SessionsOnMapTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionsOnMapTableViewController.h; sourceTree = "<group>"; };
+		459CDC6D18DF3C4C0040339D /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
+		459CDC6E18DF3C4C0040339D /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
 		45ADB1E118DE932F0013201A /* Session+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Session+Methods.h"; sourceTree = "<group>"; };
 		45ADB1E218DE932F0013201A /* Session+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Session+Methods.m"; sourceTree = "<group>"; };
 		45BB37D818CBC059005AB5B5 /* AddCustomerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCustomerTableViewController.h; sourceTree = "<group>"; };
@@ -161,8 +161,6 @@
 				459CDC6A18DF22610040339D /* SessionsOnMapTableViewController.m */,
 				454F691D18D39B2900595B4E /* CustomerDetailTableViewController.h */,
 				454F691E18D39B2900595B4E /* CustomerDetailTableViewController.m */,
-				454F692018D39D5A00595B4E /* CurrentCustomerLocationViewController.h */,
-				454F692118D39D5A00595B4E /* CurrentCustomerLocationViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -233,6 +231,8 @@
 				45516D7318CA9D4800D3750D /* Images.xcassets */,
 				454F691818D38D9600595B4E /* StoreMap.png */,
 				45516D7018CA9D4800D3750D /* QuidProQueue.xcdatamodeld */,
+				459CDC6D18DF3C4C0040339D /* Session.h */,
+				459CDC6E18DF3C4C0040339D /* Session.m */,
 				45516D6518CA9D4800D3750D /* Supporting Files */,
 			);
 			path = QuidProQueue;
@@ -411,11 +411,11 @@
 				45516D6B18CA9D4800D3750D /* main.m in Sources */,
 				45516D7218CA9D4800D3750D /* QuidProQueue.xcdatamodeld in Sources */,
 				453E439218DCB24B0038604B /* DataStore.m in Sources */,
-				454F692218D39D5A00595B4E /* CurrentCustomerLocationViewController.m in Sources */,
 				4551003618CB75670008791B /* StartedSessionsTableViewController.m in Sources */,
 				454F691C18D3925F00595B4E /* SelectCustomerLocationMapViewController.m in Sources */,
 				453E43AC18DCB42D0038604B /* Location.m in Sources */,
 				451B21E118DDDC1100E01D72 /* Customer+Methods.m in Sources */,
+				459CDC6F18DF3C4C0040339D /* Session.m in Sources */,
 				459CDC6918DF1B6F0040339D /* TabBarController.m in Sources */,
 				459CDC6C18DF22610040339D /* SessionsOnMapTableViewController.m in Sources */,
 				4551003C18CB75BB0008791B /* MapViewController.m in Sources */,
@@ -539,6 +539,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QuidProQueue/QuidProQueue-Prefix.pch";
 				INFOPLIST_FILE = "QuidProQueue/QuidProQueue-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -553,6 +554,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QuidProQueue/QuidProQueue-Prefix.pch";
 				INFOPLIST_FILE = "QuidProQueue/QuidProQueue-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

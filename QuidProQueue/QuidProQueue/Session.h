@@ -2,7 +2,7 @@
 //  Session.h
 //  QuidProQueue
 //
-//  Created by Dare Ryan on 3/21/14.
+//  Created by Dare Ryan on 3/23/14.
 //  Copyright (c) 2014 Dare Ryan. All rights reserved.
 //
 
@@ -16,7 +16,8 @@
 @property (nonatomic, retain) NSDate * endTime;
 @property (nonatomic, retain) NSNumber * isStarted;
 @property (nonatomic, retain) NSDate * startTime;
-@property (nonatomic, retain) Employee *employee;
+@property (nonatomic, retain) NSString * employeeNameForSession;
 @property (nonatomic, retain) Customer *customer;
+@property (nonatomic, retain) Employee *employee;
 
 @end
