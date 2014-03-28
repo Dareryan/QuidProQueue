@@ -15,7 +15,7 @@
 @interface SelectCustomerLocationMapViewController ()
 
 
-@property (strong, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (strong, nonatomic) DataStore *dataStore;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *mapPins;
 - (IBAction)mapPinPressed:(id)sender;
@@ -41,6 +41,7 @@
         [button removeFromSuperview];
         [button setTranslatesAutoresizingMaskIntoConstraints:YES];
         [self.containerView addSubview:button];
+        NSLog(@"%f, %f",button.frame.origin.x, button.frame.origin.y);
     }
 }
 

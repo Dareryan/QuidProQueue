@@ -92,7 +92,7 @@
         cell.textLabel.textColor = [UIColor grayColor];
         cell.detailTextLabel.textColor = [UIColor grayColor];
         
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"Session started by %@ at %@\nSession ended by %@ at %@", customerAtIndexPath.session.employeeNameForSession, [customerAtIndexPath.session returnFormattedStartTime], customerAtIndexPath.session.employeeNameForSession, [customerAtIndexPath.session returnFormattedEndTime]];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"Session started by %@ at %@\nSession ended by %@ at %@", customerAtIndexPath.session.employeeNameForSessionStart, [customerAtIndexPath.session returnFormattedStartTime], customerAtIndexPath.session.employeeNameForSessionEnd, [customerAtIndexPath.session returnFormattedEndTime]];
 
         return cell;
     }
@@ -101,7 +101,7 @@
         cell.textLabel.textColor = [UIColor blackColor];
         cell.detailTextLabel.textColor = [UIColor blackColor];
        
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"Session started by %@ at %@",customerAtIndexPath.session.employeeNameForSession, [customerAtIndexPath.session returnFormattedStartTime]];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"Session started by %@ at %@",customerAtIndexPath.session.employeeNameForSessionStart, [customerAtIndexPath.session returnFormattedStartTime]];
         return cell;
     }
 }

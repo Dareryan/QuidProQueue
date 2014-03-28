@@ -15,12 +15,12 @@
 #import "Customer+Methods.h"
 
 @interface CustomerDetailTableViewController ()
-@property (strong, nonatomic) IBOutlet UILabel *customerNameLabel;
-@property (strong, nonatomic) IBOutlet UILabel *customerNotesLabel;
-@property (strong, nonatomic) IBOutlet UILabel *customerWaitTimeLabel;
-@property (strong, nonatomic) IBOutlet UILabel *customerLocationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *customerNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *customerNotesLabel;
+@property (weak, nonatomic) IBOutlet UILabel *customerWaitTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *customerLocationLabel;
 @property (strong, nonatomic) DataStore *dataStore;
-@property (strong, nonatomic) IBOutlet UIButton *startSessionButton;
+@property (weak, nonatomic) IBOutlet UIButton *startSessionButton;
 
 - (IBAction)startSessionButtonPressed:(id)sender;
 
@@ -174,7 +174,7 @@
             
             self.passedCustomer.session = newSession;
             self.passedCustomer.session.startTime = [NSDate date];
-            self.passedCustomer.session.employeeNameForSession = employee.name;
+            self.passedCustomer.session.employeeNameForSessionStart = employee.name;
             
             [self.dataStore saveContext];
             
@@ -187,6 +187,7 @@
             [self.startSessionButton setTitle:@"Restart Session" forState:UIControlStateNormal];
             [self.startSessionButton setTitleColor:[[[[UIApplication sharedApplication] delegate] window] tintColor]forState:UIControlStateNormal];
             self.passedCustomer.session.endTime = [NSDate date];
+            self.passedCustomer.session.employeeNameForSessionEnd = employee.name;
             [self.dataStore saveContext];
             
         }

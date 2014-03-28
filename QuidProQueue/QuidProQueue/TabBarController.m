@@ -27,7 +27,9 @@
 {
     [super viewDidLoad];
     
-    self.selectedViewController=[self.viewControllers objectAtIndex:0];
+  
+    
+   
     //[self setSelectedIndex:0];
     // Do any additional setup after loading the view.
 }
@@ -37,6 +39,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 /*
 #pragma mark - Navigation

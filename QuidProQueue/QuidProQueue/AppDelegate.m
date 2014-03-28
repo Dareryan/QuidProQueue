@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "Employee.h"
+#import "TabBarController.h"
 
 
 
@@ -48,6 +49,7 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
+    
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
@@ -58,7 +60,16 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Saves changes in the application's managed object context before the application terminates.
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Employee"];
+    
+    if ([[self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil] count] != 0)
+    {
+        Employee *employee = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil][0];
+        [self.dataStore.managedObjectContext deleteObject:employee];
+        [self.dataStore saveContext];
+    }
+
     
 }
 

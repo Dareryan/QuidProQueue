@@ -15,13 +15,13 @@
 
 - (IBAction)doneButtonWasTapped:(id)sender;
 - (IBAction)cancelButtonWasTapped:(id)sender;
-@property (strong, nonatomic) IBOutlet UITableViewCell *customerNameCell;
-@property (strong, nonatomic) IBOutlet UITextField *customerNameTextField;
-@property (strong, nonatomic) IBOutlet UITableViewCell *customerNotesCell;
-@property (strong, nonatomic) IBOutlet UITextField *customerNotesTextField;
-@property (strong, nonatomic) IBOutlet UITableViewCell *customerLocationCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *customerNameCell;
+@property (weak, nonatomic) IBOutlet UITextField *customerNameTextField;
+@property (weak, nonatomic) IBOutlet UITableViewCell *customerNotesCell;
+@property (weak, nonatomic) IBOutlet UITextField *customerNotesTextField;
+@property (weak, nonatomic) IBOutlet UITableViewCell *customerLocationCell;
 @property (strong, nonatomic) DataStore *dataStore;
-@property (strong, nonatomic) IBOutlet UITextField *customerLocationTextField;
+@property (weak, nonatomic) IBOutlet UITextField *customerLocationTextField;
 
 
 @end
@@ -71,6 +71,8 @@
 {
     [super viewWillAppear:animated];
     self.customerLocationTextField.text = self.createdCustomer.location.area;
+    
+    
     
     self.customerNameCell.backgroundColor = [UIColor whiteColor];
     self.customerLocationCell.backgroundColor = [UIColor whiteColor];

@@ -15,10 +15,11 @@
 @interface MapViewController ()
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *mapPinButtons;
-@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (strong, nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (strong, nonatomic) DataStore *dataStore;
 @property (strong, nonatomic) NSMutableArray *arrayWithCustomersWithEndedSessionsRemoved;
+@property (strong, nonatomic) NSString *locationArea;
 
 - (IBAction)mapPinPressed:(id)sender;
 
@@ -41,10 +42,10 @@
     
     for (UIButton *button in self.mapPinButtons) {
         [button removeFromSuperview];
-//        [button setTranslatesAutoresizingMaskIntoConstraints:YES];
+        //        [button setTranslatesAutoresizingMaskIntoConstraints:YES];
         [self.contentView addSubview:button];
     }
-
+    
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -73,39 +74,38 @@
 
 - (IBAction)mapPinPressed:(id)sender
 {
-    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    SessionsOnMapTableViewController *sessionsOnMapTVC = [storyBoard instantiateViewControllerWithIdentifier:@"SessionsOnMapTableViewController"];
+    
     
     switch (((UIButton *)sender).tag)
     {
         case 0:
-            sessionsOnMapTVC.locationArea = @"Ruby instruction tables";
+            self.locationArea = @"Ruby instruction tables";
             break;
         case 1:
-            sessionsOnMapTVC.locationArea = @"iOS instruction tables";
+            self.locationArea = @"iOS instruction tables";
             break;
         case 2:
-            sessionsOnMapTVC.locationArea = @"Instructor table";
+            self.locationArea = @"Instructor table";
             break;
         case 3:
-            sessionsOnMapTVC.locationArea = @"Back picnic table";
+            self.locationArea = @"Back picnic table";
             break;
         case 4:
-            sessionsOnMapTVC.locationArea = @"Center table";
+            self.locationArea = @"Center table";
             break;
         case 5:
-            sessionsOnMapTVC.locationArea = @"Kitchen";
+            self.locationArea = @"Kitchen";
             break;
         case 6:
-            sessionsOnMapTVC.locationArea = @"Left presentation area";
+            self.locationArea = @"Left presentation area";
             break;
         case 7:
-            sessionsOnMapTVC.locationArea = @"Right presentation area";
+            self.locationArea = @"Right presentation area";
         default:
             break;
     }
     
-    [self presentViewController:[[UINavigationController alloc]initWithRootViewController:sessionsOnMapTVC] animated:YES completion:nil];
+    [self performSegueWithIdentifier:@"CustomersAtLocationSegue" sender:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -113,7 +113,25 @@
     [super didReceiveMemoryWarning];
 }
 
-
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"CustomersAtLocationSegue"])
+    {
+        if ([segue.destinationViewController isKindOfClass:[UINavigationController class]]) {
+            UINavigationController *navController = segue.destinationViewController;
+            if ([navController.topViewController isKindOfClass:[SessionsOnMapTableViewController class]])
+            {
+                SessionsOnMapTableViewController *sessionsOnMapTVC = (SessionsOnMapTableViewController *)navController.topViewController;
+                NSLog(@"%@", self.locationArea);
+                sessionsOnMapTVC.locationArea = self.locationArea;
+            }
+            else
+            {
+                NSLog(@"Destination is not a SessionsOnMapTableViewController. Abort Segue.");
+            }
+        }
+    }
+}
 #pragma mark configuration method for tabBarButton
 
 -(UITabBarItem *)tabBarItem

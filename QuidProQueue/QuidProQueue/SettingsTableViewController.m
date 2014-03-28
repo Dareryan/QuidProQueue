@@ -16,8 +16,8 @@
 
 @property (strong, nonatomic) DataStore *dataStore;
 @property (strong, nonatomic) Employee *employee;
-@property (strong, nonatomic) IBOutlet UITextField *userNameTextField;
-@property (strong, nonatomic) IBOutlet UIButton *logInButton;
+@property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
+@property (weak, nonatomic) IBOutlet UIButton *logInButton;
 
 - (IBAction)logInButtonPressed:(id)sender;
 
@@ -33,19 +33,18 @@
     }
     return self;
 }
-
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    self.dataStore = [DataStore sharedInstance];
-    
+    [self.logInButton setTitleColor:[[[[UIApplication sharedApplication] delegate] window] tintColor] forState:UIControlStateNormal];
     [self configureLogInButtonOnLoad];
 }
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.dataStore = [DataStore sharedInstance];
+     [self.logInButton setTitleColor:[[[[UIApplication sharedApplication] delegate] window] tintColor] forState:UIControlStateNormal];
+    [self configureLogInButtonOnLoad];
     
     
     
@@ -54,6 +53,13 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+     [self.logInButton setTitleColor:[[[[UIApplication sharedApplication] delegate] window] tintColor] forState:UIControlStateNormal];
+    [self configureLogInButtonOnLoad];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -106,7 +112,9 @@
 }
 
 -(void)configureLogInButtonOnLoad
+
 {
+    
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Employee"];
     
     if ([[self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil] count] == 0) {
@@ -142,6 +150,11 @@
     [self.logInButton setTitleColor:[[[[UIApplication sharedApplication] delegate] window] tintColor] forState:UIControlStateNormal];
     [self.dataStore.managedObjectContext deleteObject:employee];
     [self.dataStore saveContext];
+}
+
+-(void)viewWillUnload{
+    [super viewWillUnload];
+     [self.logInButton setTitleColor:[UIColor colorWithRed:0.875 green:0.173 blue:0.290 alpha:1] forState:UIControlStateNormal];
 }
 
 @end

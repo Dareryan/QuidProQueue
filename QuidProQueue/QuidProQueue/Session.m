@@ -13,10 +13,11 @@
 
 @implementation Session
 
+@dynamic employeeNameForSessionStart;
 @dynamic endTime;
 @dynamic isStarted;
 @dynamic startTime;
-@dynamic employeeNameForSession;
+@dynamic employeeNameForSessionEnd;
 @dynamic customer;
 @dynamic employee;
 
