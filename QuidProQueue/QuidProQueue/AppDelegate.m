@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "Employee.h"
-#import "TabBarController.h"
+
+
 
 
 
@@ -18,7 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.dataStore = [DataStore sharedInstance];
+  
    
    
     return YES;
@@ -34,15 +34,8 @@
 {
    
     //Log out employee
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Employee"];
-    
-    if ([[self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil] count] != 0)
-    {
-        Employee *employee = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil][0];
-        [self.dataStore.managedObjectContext deleteObject:employee];
-        [self.dataStore saveContext];
-    }
-
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:@"User"];
    
 
 }
@@ -60,16 +53,8 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Employee"];
-    
-    if ([[self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil] count] != 0)
-    {
-        Employee *employee = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil][0];
-        [self.dataStore.managedObjectContext deleteObject:employee];
-        [self.dataStore saveContext];
-    }
-
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+   [defaults removeObjectForKey:@"User"];
     
 }
 

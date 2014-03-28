@@ -10,12 +10,11 @@
 #import <FAKFontAwesome.h>
 #import <FAKIonIcons.h>
 #import "DataStore.h"
-#import "Employee.h"
+
 
 @interface SettingsTableViewController ()
 
 @property (strong, nonatomic) DataStore *dataStore;
-@property (strong, nonatomic) Employee *employee;
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
 @property (weak, nonatomic) IBOutlet UIButton *logInButton;
 
@@ -36,15 +35,13 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.logInButton setTitleColor:[[[[UIApplication sharedApplication] delegate] window] tintColor] forState:UIControlStateNormal];
     [self configureLogInButtonOnLoad];
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.dataStore = [DataStore sharedInstance];
-     [self.logInButton setTitleColor:[[[[UIApplication sharedApplication] delegate] window] tintColor] forState:UIControlStateNormal];
-    [self configureLogInButtonOnLoad];
+   
     
     
     
@@ -57,9 +54,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-     [self.logInButton setTitleColor:[[[[UIApplication sharedApplication] delegate] window] tintColor] forState:UIControlStateNormal];
-    [self configureLogInButtonOnLoad];
-
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -82,16 +77,17 @@
 
 - (IBAction)logInButtonPressed:(id)sender
 {
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Employee"];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
     
     //check to see if there is no user logged in
-    if ([[self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil] count] == 0)
+    if (![defaults objectForKey:@"User"])
     {
         [self login];
         [self.userNameTextField resignFirstResponder];
     }
     //check to see if a user is already logged in
-    else if ([[self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil] count] != 0)
+    else
     {
         [self logout];
         [self.userNameTextField resignFirstResponder];
@@ -114,47 +110,47 @@
 -(void)configureLogInButtonOnLoad
 
 {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Employee"];
-    
-    if ([[self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil] count] == 0) {
+    if (![defaults objectForKey:@"User"]) {
         [self.logInButton setTitle:@"Log in" forState:UIControlStateNormal];
-        self.logInButton.titleLabel.textColor = [[[[UIApplication sharedApplication] delegate] window] tintColor];
+        [self.logInButton setTitleColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
         self.userNameTextField.text = @"";
     }
     else
     {
-        Employee *loggedInEmployee = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil][0];
         [self.logInButton setTitle:@"Log out" forState:UIControlStateNormal];
         [self.logInButton setTitleColor:[UIColor colorWithRed:0.875 green:0.173 blue:0.290 alpha:1] forState:UIControlStateNormal];
-        self.userNameTextField.text = loggedInEmployee.name;
+        NSLog(@"%@", [defaults objectForKey:@"User"]);
+        self.userNameTextField.text = [defaults objectForKey:@"User"];
     }
 }
 
 -(void)login
 {
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Employee" inManagedObjectContext:self.dataStore.managedObjectContext];
-    self.employee = [[Employee alloc]initWithEntity:entityDescription insertIntoManagedObjectContext:self.dataStore.managedObjectContext];
-    self.employee.name = self.userNameTextField.text;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
     [self.logInButton setTitle:@"Log out" forState:UIControlStateNormal];
     [self.logInButton setTitleColor:[UIColor colorWithRed:0.875 green:0.173 blue:0.290 alpha:1] forState:UIControlStateNormal];
-    [self.dataStore saveContext];
+    [defaults setObject:self.userNameTextField.text forKey:@"User"];
+    [defaults synchronize];
+    NSLog(@"%@", [defaults objectForKey:@"User"]);
 }
 
 -(void)logout
 {
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Employee"];
-    Employee *employee = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil][0];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.userNameTextField.text = @"";
     [self.logInButton setTitle:@"Log in" forState:UIControlStateNormal];
-    [self.logInButton setTitleColor:[[[[UIApplication sharedApplication] delegate] window] tintColor] forState:UIControlStateNormal];
-    [self.dataStore.managedObjectContext deleteObject:employee];
-    [self.dataStore saveContext];
+    [self.logInButton setTitleColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
+    [defaults removeObjectForKey:@"User"];
+    [defaults synchronize];
+    
 }
 
 -(void)viewWillUnload{
     [super viewWillUnload];
-     [self.logInButton setTitleColor:[UIColor colorWithRed:0.875 green:0.173 blue:0.290 alpha:1] forState:UIControlStateNormal];
+    [self.logInButton setTitleColor:[UIColor colorWithRed:0.875 green:0.173 blue:0.290 alpha:1] forState:UIControlStateNormal];
 }
 
 @end

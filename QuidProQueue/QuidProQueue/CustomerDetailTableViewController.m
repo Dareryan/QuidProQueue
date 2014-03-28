@@ -152,16 +152,27 @@
 
 - (IBAction)startSessionButtonPressed:(id)sender
 {
-    NSFetchRequest *employeeFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Employee"];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    if ([[self.dataStore.managedObjectContext executeFetchRequest:employeeFetchRequest error:nil] count] ==0)
+    if (![defaults objectForKey:@"User"])
     {
         UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Please log-in to start and end sessions" message:@"In order to start or end a session, you must log-in in the settings tab" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alertView show];
     }
     else
     {
-        Employee *employee = [self.dataStore.managedObjectContext executeFetchRequest:employeeFetchRequest error:nil][0];
+       
+       NSFetchRequest *employeeFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Employee"];
+        NSPredicate *userNamePreidcate = [NSPredicate predicateWithFormat:@"name = %@", [defaults objectForKey:@"User"]];
+        employeeFetchRequest.predicate = userNamePreidcate;
+        
+        if ([[self.dataStore.managedObjectContext executeFetchRequest:employeeFetchRequest error:nil]count] == 0)
+        {
+            NSEntityDescription *employeeDescription = [NSEntityDescription entityForName:@"Employee" inManagedObjectContext:self.dataStore.managedObjectContext];
+            Employee *newEmployee = [[Employee alloc]initWithEntity:employeeDescription insertIntoManagedObjectContext:self.dataStore.managedObjectContext];
+            newEmployee.name = [defaults objectForKey:@"User"];
+        }
+        
         
         if (!self.passedCustomer.session)
         {
@@ -170,6 +181,7 @@
             
             newSession.isStarted = @1;
             
+            Employee *employee = [self.dataStore.managedObjectContext executeFetchRequest:employeeFetchRequest error:nil][0];
             [employee addSessionsObject:newSession];
             
             self.passedCustomer.session = newSession;
@@ -183,9 +195,11 @@
         }
         else if ([self.passedCustomer.session.isStarted boolValue] == YES)
         {
+            Employee *employee = [self.dataStore.managedObjectContext executeFetchRequest:employeeFetchRequest error:nil][0];
+                    
             self.passedCustomer.session.isStarted = @0;
             [self.startSessionButton setTitle:@"Restart Session" forState:UIControlStateNormal];
-            [self.startSessionButton setTitleColor:[[[[UIApplication sharedApplication] delegate] window] tintColor]forState:UIControlStateNormal];
+            [self.startSessionButton setTitleColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
             self.passedCustomer.session.endTime = [NSDate date];
             self.passedCustomer.session.employeeNameForSessionEnd = employee.name;
             [self.dataStore saveContext];

@@ -31,6 +31,7 @@
         // Custom initialization
     }
     return self;
+   
 }
 
 -(void)viewWillAppear:(BOOL)animated
