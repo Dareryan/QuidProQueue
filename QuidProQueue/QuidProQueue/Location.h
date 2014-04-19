@@ -2,7 +2,7 @@
 //  Location.h
 //  QuidProQueue
 //
-//  Created by Dare Ryan on 3/21/14.
+//  Created by Dare Ryan on 3/31/14.
 //  Copyright (c) 2014 Dare Ryan. All rights reserved.
 //
 
@@ -14,6 +14,8 @@
 @interface Location : NSManagedObject
 
 @property (nonatomic, retain) NSString * area;
+@property (nonatomic, retain) NSString * uniqueID;
+@property (nonatomic, retain) NSDate * lastEdited;
 @property (nonatomic, retain) NSSet *customers;
 @end
 

@@ -15,39 +15,31 @@
 @implementation Customer (Methods)
 -(NSString *)calculateWaitTimeForCustomer
 {
-    if (!self.session.startTime)
-    {
+    if (!self.session.startTime){
         NSDate *currentTime= [NSDate date];
         NSTimeInterval timeInterval = [currentTime timeIntervalSinceDate:self.arrivalTime];
         NSInteger minutesElapsed = (round(timeInterval)/60);
         
-        if (minutesElapsed == 1)
-        {
+        if (minutesElapsed == 1){
             return [NSString stringWithFormat:@"Wait time: %ld minute", (long)minutesElapsed];
         }
-        else
-        {
+        else{
             return [NSString stringWithFormat:@"Wait time: %ld minutes", (long)minutesElapsed];
         }
     }
-    else
-    {
+    else{
         NSDate *sessionStartTime = self.session.startTime;
         NSTimeInterval timeInterval = [sessionStartTime timeIntervalSinceDate:self.arrivalTime];
         
         NSInteger minutesElapsed = (round(timeInterval)/60);
         
-        if (minutesElapsed == 1)
-        {
+        if (minutesElapsed == 1){
             return [NSString stringWithFormat:@"Wait time: %ld minute", (long)minutesElapsed];
         }
-        else
-        {
+        else{
             return [NSString stringWithFormat:@"Wait time: %ld minutes", (long)minutesElapsed];
         }
-        
     }
-
 }
 
 

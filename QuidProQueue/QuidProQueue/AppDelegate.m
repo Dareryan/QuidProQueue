@@ -7,20 +7,27 @@
 //
 
 #import "AppDelegate.h"
-
-
-
-
-
+#import <Parse/Parse.h>
+#import "ParseSync.h"
+#import "DataStore.h"
 
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  
-   
-   
+    self.queue = [[NSOperationQueue alloc]init];
+    DataStore *dataStore = [DataStore sharedInstance];
+    
+    [Parse setApplicationId:@"hAgfTgoHwynFD2u3s5MTvsiC4SttaOseQgnuVbWh"
+                  clientKey:@"C3TECcnLIidkKyuslzkce2SiX5riXaQBMyhNPaSw"];
+    [self.queue addOperationWithBlock:^{
+        
+        [ParseSync syncLocalDataToDataStore:dataStore];
+        [ParseSync syncOnlineDataToDataStore:dataStore];
+        
+    }];
+    
     return YES;
 }
 
@@ -32,12 +39,12 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-   
+    
     //Log out employee
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults removeObjectForKey:@"User"];
-   
-
+    
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -54,7 +61,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-   [defaults removeObjectForKey:@"User"];
+    [defaults removeObjectForKey:@"User"];
     
 }
 

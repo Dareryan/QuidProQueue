@@ -149,36 +149,26 @@
     NSPredicate *locationPredicate = [NSPredicate predicateWithFormat:@"area = %@", name];
     NSArray *resultsArray = [locationArray filteredArrayUsingPredicate:locationPredicate];
     
-    if ([resultsArray count] == 0)
-    {
+    if ([resultsArray count] == 0){
         NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:context];
         
         Location *newLocation = [[Location alloc]initWithEntity:entityDescription insertIntoManagedObjectContext:context];
-        
         newLocation.area = name;
-        
         [newLocation addCustomersObject:customer];
     }
-    
-    else
-    {
+    else{
         customer.location = resultsArray[0];
     }
-    
-    
-    
 }
 
 +(NSArray *)returnCustomersWithStartedSessionsInContext:(NSManagedObjectContext *)context
 {
-    
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Customer"];
     NSMutableArray *allCustomers = [[NSMutableArray alloc] initWithArray:[context executeFetchRequest:fetchRequest error:nil]];
     NSMutableArray *customersWithSessions = [[NSMutableArray alloc]init];
     
     for (Customer *customer in allCustomers) {
-        if (customer.session)
-        {
+        if ([customer.session.isStarted boolValue] == YES || [customer.session.isEnded boolValue] == YES){
             [customersWithSessions addObject:customer];
         }
     }
@@ -191,13 +181,13 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"area = %@",area];
     fetchRequest.predicate = predicate;
     Location *location = [context executeFetchRequest:fetchRequest error:nil][0];
+    
     NSArray *allCustomersForLocation = [location.customers allObjects];
+    
     NSMutableArray *customersPresentAtLocationArray = [[NSMutableArray alloc]init];
     
-    for (Customer *presentCustomer in allCustomersForLocation)
-    {
-        if (!presentCustomer.session || [presentCustomer.session.isStarted boolValue] == YES)
-        {
+    for (Customer *presentCustomer in allCustomersForLocation){
+        if (!presentCustomer.session || [presentCustomer.session.isStarted boolValue] == YES || ([presentCustomer.session.isEnded boolValue] == NO && [presentCustomer.session.isStarted boolValue] == NO)){
             [customersPresentAtLocationArray addObject:presentCustomer];
         }
     }

@@ -2,7 +2,7 @@
 //  Session.m
 //  QuidProQueue
 //
-//  Created by Dare Ryan on 3/23/14.
+//  Created by Dare Ryan on 3/31/14.
 //  Copyright (c) 2014 Dare Ryan. All rights reserved.
 //
 
@@ -13,11 +13,14 @@
 
 @implementation Session
 
+@dynamic employeeNameForSessionEnd;
 @dynamic employeeNameForSessionStart;
 @dynamic endTime;
+@dynamic isEnded;
 @dynamic isStarted;
 @dynamic startTime;
-@dynamic employeeNameForSessionEnd;
+@dynamic uniqueID;
+@dynamic lastEdited;
 @dynamic customer;
 @dynamic employee;
 

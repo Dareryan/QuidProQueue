@@ -2,34 +2,43 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Customer" representedClassName="Customer" syncable="YES">
         <attribute name="arrivalTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="lastEdited" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uniqueID" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="customers" inverseEntity="Employee" syncable="YES"/>
         <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="customers" inverseEntity="Location" syncable="YES"/>
         <relationship name="session" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Session" inverseName="customer" inverseEntity="Session" syncable="YES"/>
     </entity>
     <entity name="Employee" representedClassName="Employee" syncable="YES">
+        <attribute name="lastEdited" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uniqueID" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="customers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Customer" inverseName="employee" inverseEntity="Customer" syncable="YES"/>
         <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="employee" inverseEntity="Session" syncable="YES"/>
     </entity>
     <entity name="Location" representedClassName="Location" syncable="YES">
         <attribute name="area" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastEdited" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="uniqueID" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="customers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Customer" inverseName="location" inverseEntity="Customer" syncable="YES"/>
     </entity>
     <entity name="Session" representedClassName="Session" syncable="YES">
         <attribute name="employeeNameForSessionEnd" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="employeeNameForSessionStart" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="endTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="isEnded" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="isStarted" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="lastEdited" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="startTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="uniqueID" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="customer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Customer" inverseName="session" inverseEntity="Customer" syncable="YES"/>
         <relationship name="employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="sessions" inverseEntity="Employee" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Customer" positionX="-198" positionY="-63" width="128" height="133"/>
-        <element name="Employee" positionX="-495" positionY="119" width="128" height="88"/>
-        <element name="Location" positionX="25" positionY="-117" width="128" height="73"/>
-        <element name="Session" positionX="-459" positionY="-180" width="128" height="150"/>
+        <element name="Customer" positionX="-198" positionY="-63" width="128" height="165"/>
+        <element name="Employee" positionX="-495" positionY="119" width="128" height="120"/>
+        <element name="Location" positionX="25" positionY="-117" width="128" height="105"/>
+        <element name="Session" positionX="-459" positionY="-180" width="128" height="195"/>
     </elements>
 </model>

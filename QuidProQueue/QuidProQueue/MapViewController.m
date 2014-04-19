@@ -61,7 +61,6 @@
     [super viewDidLoad];
     
     [self.scrollView setTranslatesAutoresizingMaskIntoConstraints:NO];
-    
     [self.contentView setTranslatesAutoresizingMaskIntoConstraints:NO];
 }
 
@@ -74,10 +73,7 @@
 
 - (IBAction)mapPinPressed:(id)sender
 {
-    
-    
-    switch (((UIButton *)sender).tag)
-    {
+    switch (((UIButton *)sender).tag){
         case 0:
             self.locationArea = @"Ruby instruction tables";
             break;
@@ -108,30 +104,23 @@
     [self performSegueWithIdentifier:@"CustomersAtLocationSegue" sender:self];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-}
-
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"CustomersAtLocationSegue"])
-    {
-        if ([segue.destinationViewController isKindOfClass:[UINavigationController class]]) {
+    if ([segue.identifier isEqualToString:@"CustomersAtLocationSegue"]){
+        if ([segue.destinationViewController isKindOfClass:[UINavigationController class]]){
             UINavigationController *navController = segue.destinationViewController;
-            if ([navController.topViewController isKindOfClass:[SessionsOnMapTableViewController class]])
-            {
+            if ([navController.topViewController isKindOfClass:[SessionsOnMapTableViewController class]]){
                 SessionsOnMapTableViewController *sessionsOnMapTVC = (SessionsOnMapTableViewController *)navController.topViewController;
-                NSLog(@"%@", self.locationArea);
+                //NSLog(@"%@", self.locationArea);
                 sessionsOnMapTVC.locationArea = self.locationArea;
             }
-            else
-            {
-                NSLog(@"Destination is not a SessionsOnMapTableViewController. Abort Segue.");
+            else{
+                //NSLog(@"Destination is not a SessionsOnMapTableViewController. Abort Segue.");
             }
         }
     }
 }
+
 #pragma mark configuration method for tabBarButton
 
 -(UITabBarItem *)tabBarItem
@@ -152,17 +141,18 @@
 {
     NSFetchRequest *locationFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Location"];
     NSArray *locationsArray = [self.dataStore.managedObjectContext executeFetchRequest:locationFetchRequest error:nil];
+    //NSLog(@"%d", [locationsArray count]);
+//    for (Location *location in locationsArray) {
+//        NSLog(@"%@", location.area);
+//    }
     NSInteger customerCount = 0;
     NSMutableArray *arrayWithEndedSessionsRemoved = [[NSMutableArray alloc]init];
-    
     
     for (Location *location in locationsArray) {
         if ([location.area isEqualToString:areaName]) {
             //customerCount = [[location.customers allObjects]count];
-            for (Customer *presentCustomer in location.customers)
-            {
-                if (!presentCustomer.session || [presentCustomer.session.isStarted boolValue] == YES)
-                {
+            for (Customer *presentCustomer in location.customers){
+                if  ([presentCustomer.session.isEnded boolValue] == NO){
                     [arrayWithEndedSessionsRemoved addObject:presentCustomer];
                 }
             }
@@ -173,13 +163,11 @@
         mapPin.tintColor = [UIColor grayColor];
         mapPin.enabled = NO;
     }
-    else if (customerCount > 0 && customerCount < 5)
-    {
+    else if (customerCount > 0 && customerCount < 5){
         mapPin.tintColor = [UIColor blackColor];
         mapPin.enabled = YES;
     }
-    else if (customerCount >= 5)
-    {
+    else if (customerCount >= 5){
         mapPin.tintColor = [UIColor colorWithRed:0.875 green:0.173 blue:0.290 alpha:1];
         mapPin.enabled = YES;
     }
@@ -193,13 +181,10 @@
     [mapMarkerIcon addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor]];
     UIImage *mapMarkerImage = [mapMarkerIcon imageWithSize:CGSizeMake(30,30)];
     
-    for (UIButton *mapPin in buttons)
-    {
+    for (UIButton *mapPin in buttons){
         [mapPin setImage:mapMarkerImage forState:UIControlStateNormal];
     }
-    
     for (UIButton *mapPin in buttons) {
-        
         switch (mapPin.tag) {
             case 0:
                 mapPin.frame = CGRectMake(253, 127, 30, 30);

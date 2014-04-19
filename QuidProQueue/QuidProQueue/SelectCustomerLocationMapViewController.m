@@ -28,7 +28,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -41,7 +40,7 @@
         [button removeFromSuperview];
         [button setTranslatesAutoresizingMaskIntoConstraints:YES];
         [self.containerView addSubview:button];
-        NSLog(@"%f, %f",button.frame.origin.x, button.frame.origin.y);
+        //NSLog(@"%f, %f",button.frame.origin.x, button.frame.origin.y);
     }
 }
 
@@ -54,12 +53,6 @@
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     
     self.dataStore = [DataStore sharedInstance];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)mapPinPressed:(id)sender
@@ -113,40 +106,17 @@
     
 }
 
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
-
-
-
-//- (IBAction)presentationAreaRightLocationButtonTapped:(id)sender
-//{
-//    [DataStore addLocationWithAreaName:@"Right presentation area" toCustomer:self.passedCustomer inManagedObjectContext:self.dataStore.managedObjectContext];
-//
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//}
-//
 -(void)assignPropertiesToButtons:(NSArray *)buttons
 {
     FAKFontAwesome *mapMarkerIcon = [FAKFontAwesome mapMarkerIconWithSize:30];
     [mapMarkerIcon addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor]];
     UIImage *mapMarkerImage = [mapMarkerIcon imageWithSize:CGSizeMake(30,30)];
     
-    for (UIButton *mapPin in buttons)
-    {
+    for (UIButton *mapPin in buttons){
         [mapPin setImage:mapMarkerImage forState:UIControlStateNormal];
     }
     
     for (UIButton *mapPin in buttons) {
-        
         switch (mapPin.tag) {
             case 0:
                 mapPin.frame = CGRectMake(253, 127, 30, 30);

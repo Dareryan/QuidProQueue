@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		451B21E118DDDC1100E01D72 /* Customer+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 451B21E018DDDC1100E01D72 /* Customer+Methods.m */; };
 		453E439218DCB24B0038604B /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 453E439118DCB24B0038604B /* DataStore.m */; };
-		453E43A618DCB42D0038604B /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = 453E43A518DCB42D0038604B /* Employee.m */; };
-		453E43AC18DCB42D0038604B /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 453E43AB18DCB42D0038604B /* Location.m */; };
 		454F690E18D3630300595B4E /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 454F690D18D3630300595B4E /* SettingsTableViewController.m */; };
 		454F691918D38D9600595B4E /* StoreMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 454F691818D38D9600595B4E /* StoreMap.png */; };
 		454F691C18D3925F00595B4E /* SelectCustomerLocationMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 454F691B18D3925F00595B4E /* SelectCustomerLocationMapViewController.m */; };
@@ -34,12 +32,25 @@
 		45516D7E18CA9D4800D3750D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45516D6218CA9D4800D3750D /* CoreData.framework */; };
 		45516D8618CA9D4800D3750D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45516D8418CA9D4800D3750D /* InfoPlist.strings */; };
 		45516D8818CA9D4800D3750D /* QuidProQueueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45516D8718CA9D4800D3750D /* QuidProQueueTests.m */; };
-		4598F14618DCC5DA003A8B4D /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4598F14518DCC5DA003A8B4D /* Customer.m */; };
+		4587B4B218E5FB2E00B37F9C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4587B4B118E5FB2E00B37F9C /* Parse.framework */; };
 		459CDC6918DF1B6F0040339D /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 459CDC6818DF1B6F0040339D /* TabBarController.m */; };
 		459CDC6C18DF22610040339D /* SessionsOnMapTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 459CDC6A18DF22610040339D /* SessionsOnMapTableViewController.m */; };
-		459CDC6F18DF3C4C0040339D /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 459CDC6E18DF3C4C0040339D /* Session.m */; };
+		45A390F118E5F7E20089DE7E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A390F018E5F7E20089DE7E /* AudioToolbox.framework */; };
+		45A390F318E5F7E70089DE7E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A390F218E5F7E70089DE7E /* CFNetwork.framework */; };
+		45A390F518E5F7F80089DE7E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A390F418E5F7F80089DE7E /* CoreLocation.framework */; };
+		45A390F718E5F8020089DE7E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A390F618E5F8020089DE7E /* libz.dylib */; };
+		45A390F918E5F80B0089DE7E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A390F818E5F80B0089DE7E /* MobileCoreServices.framework */; };
+		45A390FB18E5F8130089DE7E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A390FA18E5F8120089DE7E /* QuartzCore.framework */; };
+		45A390FD18E5F81A0089DE7E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A390FC18E5F81A0089DE7E /* Security.framework */; };
+		45A390FF18E5F8280089DE7E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A390FE18E5F8280089DE7E /* StoreKit.framework */; };
+		45A3910118E5F8310089DE7E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A3910018E5F8310089DE7E /* SystemConfiguration.framework */; };
 		45ADB1E318DE932F0013201A /* Session+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 45ADB1E218DE932F0013201A /* Session+Methods.m */; };
 		45BB37DA18CBC059005AB5B5 /* AddCustomerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BB37D918CBC059005AB5B5 /* AddCustomerTableViewController.m */; };
+		45C7DE2118E9FEE200A77326 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C7DE2018E9FEE200A77326 /* Location.m */; };
+		45C7DE2418E9FEE200A77326 /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C7DE2318E9FEE200A77326 /* Employee.m */; };
+		45C7DE2718E9FEE200A77326 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C7DE2618E9FEE200A77326 /* Session.m */; };
+		45C7DE2A18E9FEE200A77326 /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C7DE2918E9FEE200A77326 /* Customer.m */; };
+		45DB653818E651A8007B15AC /* ParseSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB653718E651A8007B15AC /* ParseSync.m */; };
 		61E568A2910046169F38693F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5289E886E1B2443FB994DFC5 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -58,10 +69,6 @@
 		451B21E018DDDC1100E01D72 /* Customer+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Customer+Methods.m"; sourceTree = "<group>"; };
 		453E439018DCB24B0038604B /* DataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataStore.h; path = QuidProQueue/DataStore.h; sourceTree = "<group>"; };
 		453E439118DCB24B0038604B /* DataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataStore.m; path = QuidProQueue/DataStore.m; sourceTree = "<group>"; };
-		453E43A418DCB42D0038604B /* Employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Employee.h; path = QuidProQueue/Employee.h; sourceTree = "<group>"; };
-		453E43A518DCB42D0038604B /* Employee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Employee.m; path = QuidProQueue/Employee.m; sourceTree = "<group>"; };
-		453E43AA18DCB42D0038604B /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Location.h; path = QuidProQueue/Location.h; sourceTree = "<group>"; };
-		453E43AB18DCB42D0038604B /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = QuidProQueue/Location.m; sourceTree = "<group>"; };
 		454F690C18D3630300595B4E /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		454F690D18D3630300595B4E /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		454F691818D38D9600595B4E /* StoreMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StoreMap.png; sourceTree = "<group>"; };
@@ -94,18 +101,34 @@
 		45516D8318CA9D4800D3750D /* QuidProQueueTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QuidProQueueTests-Info.plist"; sourceTree = "<group>"; };
 		45516D8518CA9D4800D3750D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		45516D8718CA9D4800D3750D /* QuidProQueueTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuidProQueueTests.m; sourceTree = "<group>"; };
-		4598F14418DCC5DA003A8B4D /* Customer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Customer.h; path = QuidProQueue/Customer.h; sourceTree = "<group>"; };
-		4598F14518DCC5DA003A8B4D /* Customer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Customer.m; path = QuidProQueue/Customer.m; sourceTree = "<group>"; };
+		4587B4B118E5FB2E00B37F9C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		459CDC6718DF1B6F0040339D /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		459CDC6818DF1B6F0040339D /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		459CDC6A18DF22610040339D /* SessionsOnMapTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionsOnMapTableViewController.m; sourceTree = "<group>"; };
 		459CDC6B18DF22610040339D /* SessionsOnMapTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionsOnMapTableViewController.h; sourceTree = "<group>"; };
-		459CDC6D18DF3C4C0040339D /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Session.h; path = QuidProQueue/Session.h; sourceTree = "<group>"; };
-		459CDC6E18DF3C4C0040339D /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Session.m; path = QuidProQueue/Session.m; sourceTree = "<group>"; };
+		45A390F018E5F7E20089DE7E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		45A390F218E5F7E70089DE7E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		45A390F418E5F7F80089DE7E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		45A390F618E5F8020089DE7E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		45A390F818E5F80B0089DE7E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		45A390FA18E5F8120089DE7E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		45A390FC18E5F81A0089DE7E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		45A390FE18E5F8280089DE7E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		45A3910018E5F8310089DE7E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		45ADB1E118DE932F0013201A /* Session+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Session+Methods.h"; sourceTree = "<group>"; };
 		45ADB1E218DE932F0013201A /* Session+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Session+Methods.m"; sourceTree = "<group>"; };
 		45BB37D818CBC059005AB5B5 /* AddCustomerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCustomerTableViewController.h; sourceTree = "<group>"; };
 		45BB37D918CBC059005AB5B5 /* AddCustomerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCustomerTableViewController.m; sourceTree = "<group>"; };
+		45C7DE1F18E9FEE200A77326 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Location.h; path = QuidProQueue/Location.h; sourceTree = "<group>"; };
+		45C7DE2018E9FEE200A77326 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = QuidProQueue/Location.m; sourceTree = "<group>"; };
+		45C7DE2218E9FEE200A77326 /* Employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Employee.h; path = QuidProQueue/Employee.h; sourceTree = "<group>"; };
+		45C7DE2318E9FEE200A77326 /* Employee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Employee.m; path = QuidProQueue/Employee.m; sourceTree = "<group>"; };
+		45C7DE2518E9FEE200A77326 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Session.h; path = QuidProQueue/Session.h; sourceTree = "<group>"; };
+		45C7DE2618E9FEE200A77326 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Session.m; path = QuidProQueue/Session.m; sourceTree = "<group>"; };
+		45C7DE2818E9FEE200A77326 /* Customer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Customer.h; path = QuidProQueue/Customer.h; sourceTree = "<group>"; };
+		45C7DE2918E9FEE200A77326 /* Customer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Customer.m; path = QuidProQueue/Customer.m; sourceTree = "<group>"; };
+		45DB653618E651A8007B15AC /* ParseSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseSync.h; sourceTree = "<group>"; };
+		45DB653718E651A8007B15AC /* ParseSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseSync.m; sourceTree = "<group>"; };
 		5289E886E1B2443FB994DFC5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A79B04002A534D4B90D257C9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,7 +138,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45A3910118E5F8310089DE7E /* SystemConfiguration.framework in Frameworks */,
+				45A390FF18E5F8280089DE7E /* StoreKit.framework in Frameworks */,
+				45A390FD18E5F81A0089DE7E /* Security.framework in Frameworks */,
+				45A390FB18E5F8130089DE7E /* QuartzCore.framework in Frameworks */,
+				4587B4B218E5FB2E00B37F9C /* Parse.framework in Frameworks */,
+				45A390F918E5F80B0089DE7E /* MobileCoreServices.framework in Frameworks */,
+				45A390F718E5F8020089DE7E /* libz.dylib in Frameworks */,
+				45A390F518E5F7F80089DE7E /* CoreLocation.framework in Frameworks */,
 				45516D5F18CA9D4800D3750D /* CoreGraphics.framework in Frameworks */,
+				45A390F318E5F7E70089DE7E /* CFNetwork.framework in Frameworks */,
+				45A390F118E5F7E20089DE7E /* AudioToolbox.framework in Frameworks */,
 				45516D6318CA9D4800D3750D /* CoreData.framework in Frameworks */,
 				45516D6118CA9D4800D3750D /* UIKit.framework in Frameworks */,
 				45516D5D18CA9D4800D3750D /* Foundation.framework in Frameworks */,
@@ -165,20 +198,22 @@
 		453E439418DCB28B0038604B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4598F14418DCC5DA003A8B4D /* Customer.h */,
-				4598F14518DCC5DA003A8B4D /* Customer.m */,
-				451B21DF18DDDC1100E01D72 /* Customer+Methods.h */,
-				451B21E018DDDC1100E01D72 /* Customer+Methods.m */,
-				453E43AA18DCB42D0038604B /* Location.h */,
-				453E43AB18DCB42D0038604B /* Location.m */,
-				459CDC6D18DF3C4C0040339D /* Session.h */,
-				459CDC6E18DF3C4C0040339D /* Session.m */,
-				45ADB1E118DE932F0013201A /* Session+Methods.h */,
-				45ADB1E218DE932F0013201A /* Session+Methods.m */,
-				453E43A418DCB42D0038604B /* Employee.h */,
-				453E43A518DCB42D0038604B /* Employee.m */,
+				45C7DE2818E9FEE200A77326 /* Customer.h */,
+				45C7DE2918E9FEE200A77326 /* Customer.m */,
+				45C7DE2518E9FEE200A77326 /* Session.h */,
+				45C7DE2618E9FEE200A77326 /* Session.m */,
+				45C7DE2218E9FEE200A77326 /* Employee.h */,
+				45C7DE2318E9FEE200A77326 /* Employee.m */,
+				45C7DE1F18E9FEE200A77326 /* Location.h */,
+				45C7DE2018E9FEE200A77326 /* Location.m */,
 				453E439018DCB24B0038604B /* DataStore.h */,
 				453E439118DCB24B0038604B /* DataStore.m */,
+				451B21DF18DDDC1100E01D72 /* Customer+Methods.h */,
+				451B21E018DDDC1100E01D72 /* Customer+Methods.m */,
+				45ADB1E118DE932F0013201A /* Session+Methods.h */,
+				45ADB1E218DE932F0013201A /* Session+Methods.m */,
+				45DB653618E651A8007B15AC /* ParseSync.h */,
+				45DB653718E651A8007B15AC /* ParseSync.m */,
 			);
 			name = Models;
 			path = ..;
@@ -207,6 +242,16 @@
 		45516D5B18CA9D4800D3750D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4587B4B118E5FB2E00B37F9C /* Parse.framework */,
+				45A3910018E5F8310089DE7E /* SystemConfiguration.framework */,
+				45A390FE18E5F8280089DE7E /* StoreKit.framework */,
+				45A390FC18E5F81A0089DE7E /* Security.framework */,
+				45A390FA18E5F8120089DE7E /* QuartzCore.framework */,
+				45A390F818E5F80B0089DE7E /* MobileCoreServices.framework */,
+				45A390F618E5F8020089DE7E /* libz.dylib */,
+				45A390F418E5F7F80089DE7E /* CoreLocation.framework */,
+				45A390F218E5F7E70089DE7E /* CFNetwork.framework */,
+				45A390F018E5F7E20089DE7E /* AudioToolbox.framework */,
 				45516D5C18CA9D4800D3750D /* Foundation.framework */,
 				45516D5E18CA9D4800D3750D /* CoreGraphics.framework */,
 				45516D6018CA9D4800D3750D /* UIKit.framework */,
@@ -394,25 +439,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				453E43A618DCB42D0038604B /* Employee.m in Sources */,
 				45516D6F18CA9D4800D3750D /* AppDelegate.m in Sources */,
 				454F690E18D3630300595B4E /* SettingsTableViewController.m in Sources */,
 				45ADB1E318DE932F0013201A /* Session+Methods.m in Sources */,
-				4598F14618DCC5DA003A8B4D /* Customer.m in Sources */,
 				45BB37DA18CBC059005AB5B5 /* AddCustomerTableViewController.m in Sources */,
 				454F691F18D39B2900595B4E /* CustomerDetailTableViewController.m in Sources */,
+				45DB653818E651A8007B15AC /* ParseSync.m in Sources */,
 				4551003318CA9E000008791B /* QueueTableViewController.m in Sources */,
 				45516D6B18CA9D4800D3750D /* main.m in Sources */,
 				45516D7218CA9D4800D3750D /* QuidProQueue.xcdatamodeld in Sources */,
 				453E439218DCB24B0038604B /* DataStore.m in Sources */,
 				4551003618CB75670008791B /* StartedSessionsTableViewController.m in Sources */,
 				454F691C18D3925F00595B4E /* SelectCustomerLocationMapViewController.m in Sources */,
-				453E43AC18DCB42D0038604B /* Location.m in Sources */,
 				451B21E118DDDC1100E01D72 /* Customer+Methods.m in Sources */,
-				459CDC6F18DF3C4C0040339D /* Session.m in Sources */,
 				459CDC6918DF1B6F0040339D /* TabBarController.m in Sources */,
+				45C7DE2718E9FEE200A77326 /* Session.m in Sources */,
 				459CDC6C18DF22610040339D /* SessionsOnMapTableViewController.m in Sources */,
+				45C7DE2418E9FEE200A77326 /* Employee.m in Sources */,
+				45C7DE2118E9FEE200A77326 /* Location.m in Sources */,
 				4551003C18CB75BB0008791B /* MapViewController.m in Sources */,
+				45C7DE2A18E9FEE200A77326 /* Customer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,10 +576,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QuidProQueue/QuidProQueue-Prefix.pch";
 				INFOPLIST_FILE = "QuidProQueue/QuidProQueue-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = (
+					"-framework",
+					CoreText,
+					"-framework",
+					UIKit,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -545,10 +601,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QuidProQueue/QuidProQueue-Prefix.pch";
 				INFOPLIST_FILE = "QuidProQueue/QuidProQueue-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = (
+					"-framework",
+					CoreText,
+					"-framework",
+					UIKit,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
